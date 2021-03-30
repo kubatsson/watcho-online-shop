@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace e_comm.DB.Domain
 {
-    public class Gender
+    public class Gender : Base
     {
-
         public string GenderName { get; set; }
+
+        public List <User> Users { get; set; }
     }
 }

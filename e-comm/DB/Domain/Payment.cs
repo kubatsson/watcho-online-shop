@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace e_comm.DB.Domain
 {
-    public class Payment
+    public class Payment : Base
     {
         public int UserId { get; set; }
         public User User { get; set; }

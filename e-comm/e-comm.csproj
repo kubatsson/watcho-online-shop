@@ -22,8 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DB\EF\" />
-    <Folder Include="DB\Configuration\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
 

@@ -5,8 +5,11 @@ using System.Threading.Tasks;
 
 namespace e_comm.DB.Domain
 {
-    public class Product
+    public class Product : Base
     {
-        public int MyProperty { get; set; }
+        public int ProductName { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
+        public List<Payment> Payments { get; set; }
     }
 }
