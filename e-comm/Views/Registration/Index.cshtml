@@ -1,0 +1,81 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+    <title>WATCHO - Registration</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+    </script>
+    <link rel="stylesheet" href="../css/Login/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../css/Login/fontawesome-all.css">
+    <link href="//fonts.googleapis.com/css?family=Reem+Kufi&amp;subset=arabic" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+</head>
+<body>
+    <a asp-controller="Registration" asp-action="Index"/><h1>
+    W A T C H O
+    </h1></a>
+    <div class="sub-main-w3">              
+        <form asp-controller="Login" asp-action="SignIn">
+
+            <div class="form-style-agile">
+                <label>
+                    Email
+                    <i class="fas fa-at"></i>
+                </label>
+                <input placeholder="Enter your email address here" name="Email" type="text" required="">
+            </div>
+
+            <div class="form-style-agile">
+                <label>
+                    Username
+                    <i class="fas fa-user"></i>
+                </label>
+                <input placeholder="Enter your username" name="Username" type="text" required="">
+            </div>
+            <div class="form-style-agile">
+                <label>
+                    Password
+                    <i class="fas fa-unlock-alt"></i>
+                </label>
+                <input placeholder="Enter you password" name="Password" type="password" required="">
+            </div>
+            <div class="form-style-agile">
+                <label>
+                    Confirm Password
+                    <i class="fas fa-unlock-alt"></i>
+                </label>
+                <input placeholder="Confirm your password" name="Password" type="password" required="">
+            </div>
+
+            <div class="wthree-text">
+                <ul>
+                    <li>
+                        <a href="#">Already have an account?</a>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            <input type="submit" value="Finish registration">
+
+        </form>
+    </div>
+</body>
+</html>

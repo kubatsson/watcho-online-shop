@@ -21,7 +21,7 @@ namespace e_comm.DB.EF
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            //modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserRoleConfiguration).Assembly);
+            
             base.OnModelCreating(modelBuilder);
         }
 
