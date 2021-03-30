@@ -1,0 +1,68 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout= null;
+}
+
+<!DOCTYPE HTML>
+<html lang="zxx">
+
+<head>
+    <title>WATCHO - Login</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+    </script>
+    <link rel="stylesheet" href="../css/Login/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../css/Login/fontawesome-all.css">
+    <link href="//fonts.googleapis.com/css?family=Reem+Kufi&amp;subset=arabic" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+</head>
+<body>
+    <h1>
+        W A T C H O
+    </h1>
+    <div class="sub-main-w3">
+        <form  asp-controller="Login" asp-action="SignIn" >
+            <div class="form-style-agile">
+                <label>
+                    Username
+                    <i class="fas fa-user"></i>
+                </label>
+                <input placeholder="Username" name="Name" type="text" required="">
+            </div>
+
+            <div class="form-style-agile">
+                <label>
+                    Password
+                    <i class="fas fa-unlock-alt"></i>
+                </label>
+                <input placeholder="Password" name="Password" type="password" required="">
+            </div>
+
+            <div class="wthree-text">
+                <ul>
+                    <li>
+                        <a href="#">Don't have an account?</a>
+                    </li>
+                    <li>
+                        <a href="#">Forgot Password?</a>
+                    </li>
+                </ul>
+            </div>
+
+            <input type="submit" value="Log In" >
+
+        </form>
+    </div>
+</body>
+</html>
