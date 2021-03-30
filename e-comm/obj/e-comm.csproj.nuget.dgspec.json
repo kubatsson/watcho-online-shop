@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\adisk\\Desktop\\e-commerce\\e-comm\\e-comm\\e-comm.csproj": {}
+    "C:\\Users\\adisk\\Desktop\\watches\\e-commerce\\e-comm\\e-comm.csproj": {}
   },
   "projects": {
-    "C:\\Users\\adisk\\Desktop\\e-commerce\\e-comm\\e-comm\\e-comm.csproj": {
+    "C:\\Users\\adisk\\Desktop\\watches\\e-commerce\\e-comm\\e-comm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\adisk\\Desktop\\e-commerce\\e-comm\\e-comm\\e-comm.csproj",
+        "projectUniqueName": "C:\\Users\\adisk\\Desktop\\watches\\e-commerce\\e-comm\\e-comm.csproj",
         "projectName": "e-comm",
-        "projectPath": "C:\\Users\\adisk\\Desktop\\e-commerce\\e-comm\\e-comm\\e-comm.csproj",
+        "projectPath": "C:\\Users\\adisk\\Desktop\\watches\\e-commerce\\e-comm\\e-comm.csproj",
         "packagesPath": "C:\\Users\\adisk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\adisk\\Desktop\\e-commerce\\e-comm\\e-comm\\obj\\",
+        "outputPath": "C:\\Users\\adisk\\Desktop\\watches\\e-commerce\\e-comm\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -43,6 +43,26 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.4, )"
+            },
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.10.9, )"
