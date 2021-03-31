@@ -16,6 +16,7 @@ namespace e_comm.DB.Domain
         public string PasswordSalt { get; set; }
         public string PhoneNumber { get; set; }
         public List<Payment> Payments { get; set; }
-
+        public string Username { get; set; }
+     
     }
 }

@@ -10,7 +10,7 @@ using e_comm.DB.EF;
 namespace e_comm.Migrations
 {
     [DbContext(typeof(DBcon))]
-    [Migration("20210330060706_Initial")]
+    [Migration("20210331114539_Initial ")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -66,6 +66,22 @@ namespace e_comm.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genders");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2021, 3, 31, 11, 45, 39, 270, DateTimeKind.Utc).AddTicks(9786),
+                            GenderName = "Male",
+                            ModifedAt = new DateTime(2021, 3, 31, 11, 45, 39, 270, DateTimeKind.Utc).AddTicks(9786)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2021, 3, 31, 11, 45, 39, 271, DateTimeKind.Utc).AddTicks(940),
+                            GenderName = "Female",
+                            ModifedAt = new DateTime(2021, 3, 31, 11, 45, 39, 271, DateTimeKind.Utc).AddTicks(940)
+                        });
                 });
 
             modelBuilder.Entity("e_comm.DB.Domain.Payment", b =>
@@ -154,6 +170,9 @@ namespace e_comm.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

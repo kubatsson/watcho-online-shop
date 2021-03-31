@@ -22,6 +22,7 @@ namespace e_comm.DB.EF
         {
 
             
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(Payment).Assembly);
             base.OnModelCreating(modelBuilder);
         }
 

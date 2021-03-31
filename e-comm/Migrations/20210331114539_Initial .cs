@@ -57,6 +57,7 @@ namespace e_comm.Migrations
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PasswordSalt = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -120,6 +121,16 @@ namespace e_comm.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
+
+            migrationBuilder.InsertData(
+                table: "Genders",
+                columns: new[] { "Id", "CreatedAt", "GenderName", "ModifedAt" },
+                values: new object[] { 1, new DateTime(2021, 3, 31, 11, 45, 39, 270, DateTimeKind.Utc).AddTicks(9786), "Male", new DateTime(2021, 3, 31, 11, 45, 39, 270, DateTimeKind.Utc).AddTicks(9786) });
+
+            migrationBuilder.InsertData(
+                table: "Genders",
+                columns: new[] { "Id", "CreatedAt", "GenderName", "ModifedAt" },
+                values: new object[] { 2, new DateTime(2021, 3, 31, 11, 45, 39, 271, DateTimeKind.Utc).AddTicks(940), "Female", new DateTime(2021, 3, 31, 11, 45, 39, 271, DateTimeKind.Utc).AddTicks(940) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Categories_GenderId",

@@ -13,6 +13,8 @@ namespace e_comm.DB.Configuration
         {
             base.Configure(builder);
 
+           
+
         }
     }
 }
