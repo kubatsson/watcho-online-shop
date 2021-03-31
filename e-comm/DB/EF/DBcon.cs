@@ -14,6 +14,8 @@ namespace e_comm.DB.EF
         public DbSet<Product> Products { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Token> Tokens { get; set; }
+        public DbSet<ChangePasswordCode> ChangePasswords { get; set; }
 
 
         public DBcon(DbContextOptions<DBcon> options) : base(options) { }
@@ -22,6 +24,7 @@ namespace e_comm.DB.EF
         {
 
             
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(Payment).Assembly);
             base.OnModelCreating(modelBuilder);
         }
 

@@ -2,8 +2,12 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    Layout= null;
+    Layout = null;
 }
+@model e_comm.ViewModels.Login.LoginIndexVM
+@{string errorMessage = (string)TempData["errorMessage"];
+string successMessage = (string)TempData["successMessage"];
+    }
 
 <!DOCTYPE HTML>
 <html lang="zxx">
@@ -14,31 +18,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
     <script>
-		addEventListener("load", function () {
-			setTimeout(hideURLbar, 0);
-		}, false);
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
 
-		function hideURLbar() {
-			window.scrollTo(0, 1);
-		}
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
     </script>
     <link rel="stylesheet" href="../css/Login/style.css" type="text/css" media="all" />
     <link rel="stylesheet" href="../css/Login/fontawesome-all.css">
     <link href="//fonts.googleapis.com/css?family=Reem+Kufi&amp;subset=arabic" rel="stylesheet">
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
 </head>
 <body>
     <h1>
         W A T C H O
     </h1>
     <div class="sub-main-w3">
-        <form  asp-controller="Login" asp-action="SignIn" >
+        <form id="login" asp-controller="Login" asp-action="SignIn">
+            @if (successMessage != null)
+            {
+                <p class="change-par">@successMessage</p>
+            }
             <div class="form-style-agile">
                 <label>
-                    Username
-                    <i class="fas fa-user"></i>
+                    Email
+                    <i class="fas fa-at"></i>
                 </label>
-                <input placeholder="Username" name="Name" type="text" required="">
+
+                <input placeholder="Email" name="Email" type="text" required="">
+                <small class="email-error-message text-muted"></small>
             </div>
 
             <div class="form-style-agile">
@@ -46,23 +57,28 @@
                     Password
                     <i class="fas fa-unlock-alt"></i>
                 </label>
+
                 <input placeholder="Password" name="Password" type="password" required="">
+                <small class="password-error-message"></small>
             </div>
 
             <div class="wthree-text">
                 <ul>
                     <li>
-                        <a href="#">Don't have an account?</a>
+                        <a asp-controller="Registration" asp-action="Index">Don't have an account?</a>
                     </li>
                     <li>
-                        <a href="#">Forgot Password?</a>
+                        <a asp-controller="Login" asp-action="ForgotPassword">Forgot Password?</a>
                     </li>
                 </ul>
             </div>
 
-            <input type="submit" value="Log In" >
+            <input type="submit" value="Log In">
 
         </form>
     </div>
+    <script src="../js/Login/jquery.min.js"></script>
+    <script src="../js/Login/jquery.validate.min.js"></script>
+    <script src="../js/Login/validate.js"></script>
 </body>
 </html>
