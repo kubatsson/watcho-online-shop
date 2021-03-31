@@ -6,8 +6,7 @@
 }
 @model e_comm.ViewModels.Registration.RegistrationIndexVM;
 
-@{ string successMessage = (string)TempData["successMessage"];
-    string errorMessage = (string)TempData["errorMessage"]; }
+@{string errorMessage = (string)TempData["errorMessage"]; }
 
 
 
@@ -41,26 +40,23 @@
         </a>
         <div class="sub-main-w3">
             
-                @if (successMessage != null)
-                {
-                    <div class="alert alert-info alert-login" data-alert="alert">
-
-                        <p class="text-center text-info">@successMessage</p>
-                    </div>}
-                @if (errorMessage != null)
-                {
-                    <div class="alert alert-danger alert-login" data-alert="alert">
-
-                        <p class="text-center text-danger">@errorMessage</p>
-                    </div>}
+                
 
                 <form id="registration" asp-controller="Registration" asp-action="SignUp">
 
                     <div class="form-style-agile">
-                        <label>
-                            Email
-                            <i class="fas fa-at"></i>
-                        </label>
+                        @if (errorMessage != null)
+                        {
+                            <label><i class="error-email-text">@errorMessage</i></label>
+                        }
+                        else
+                        {
+                            <label>
+                                Email
+                                <i class="fas fa-at"></i>
+                            </label>
+                        }
+
 
                         <input placeholder="Enter your email address here" name="Email" type="text" required="">
                         <small class="email-error-message text-muted"></small>

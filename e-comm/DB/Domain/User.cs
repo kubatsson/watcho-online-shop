@@ -17,6 +17,10 @@ namespace e_comm.DB.Domain
         public string PhoneNumber { get; set; }
         public List<Payment> Payments { get; set; }
         public string Username { get; set; }
-     
+        public int? TokenId { get; set; }
+        public Token Token { get; set; }
+
+
+
     }
 }

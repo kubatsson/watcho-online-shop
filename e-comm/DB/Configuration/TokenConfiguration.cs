@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 
 namespace e_comm.DB.Configuration
 {
-    public class UserConfiguration : BaseConfiguration<User>
+    public class TokenConfiguration : BaseConfiguration<Token>
     {
-        public override void Configure(EntityTypeBuilder<User> builder)
+        public override void Configure(EntityTypeBuilder<Token> builder)
         {
+
             base.Configure(builder);
 
-            builder.HasOne(p => p.Token).WithOne(p => p.User).HasForeignKey<User>(p => p.TokenId);
+            
 
+            
+
+            
         }
     }
 }

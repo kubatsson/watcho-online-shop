@@ -69,16 +69,16 @@ namespace e_comm.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2021, 3, 31, 11, 45, 39, 270, DateTimeKind.Utc).AddTicks(9786),
+                            CreatedAt = new DateTime(2021, 3, 31, 13, 40, 38, 142, DateTimeKind.Utc).AddTicks(3737),
                             GenderName = "Male",
-                            ModifedAt = new DateTime(2021, 3, 31, 11, 45, 39, 270, DateTimeKind.Utc).AddTicks(9786)
+                            ModifedAt = new DateTime(2021, 3, 31, 13, 40, 38, 142, DateTimeKind.Utc).AddTicks(3737)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2021, 3, 31, 11, 45, 39, 271, DateTimeKind.Utc).AddTicks(940),
+                            CreatedAt = new DateTime(2021, 3, 31, 13, 40, 38, 142, DateTimeKind.Utc).AddTicks(5023),
                             GenderName = "Female",
-                            ModifedAt = new DateTime(2021, 3, 31, 11, 45, 39, 271, DateTimeKind.Utc).AddTicks(940)
+                            ModifedAt = new DateTime(2021, 3, 31, 13, 40, 38, 142, DateTimeKind.Utc).AddTicks(5023)
                         });
                 });
 
@@ -136,6 +136,33 @@ namespace e_comm.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("e_comm.DB.Domain.Token", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ModifedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tokens");
+                });
+
             modelBuilder.Entity("e_comm.DB.Domain.User", b =>
                 {
                     b.Property<int>("Id")
@@ -170,12 +197,19 @@ namespace e_comm.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("TokenId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("GenderId");
+
+                    b.HasIndex("TokenId")
+                        .IsUnique()
+                        .HasFilter("[TokenId] IS NOT NULL");
 
                     b.ToTable("Users");
                 });
@@ -229,7 +263,13 @@ namespace e_comm.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("e_comm.DB.Domain.Token", "Token")
+                        .WithOne("User")
+                        .HasForeignKey("e_comm.DB.Domain.User", "TokenId");
+
                     b.Navigation("Gender");
+
+                    b.Navigation("Token");
                 });
 
             modelBuilder.Entity("e_comm.DB.Domain.Category", b =>
@@ -245,6 +285,11 @@ namespace e_comm.Migrations
             modelBuilder.Entity("e_comm.DB.Domain.Product", b =>
                 {
                     b.Navigation("Payments");
+                });
+
+            modelBuilder.Entity("e_comm.DB.Domain.Token", b =>
+                {
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("e_comm.DB.Domain.User", b =>
