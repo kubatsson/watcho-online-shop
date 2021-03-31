@@ -53,7 +53,7 @@ namespace e_comm.Controllers
 
             con.Users.Add(user);
             con.SaveChanges();
-
+            TempData["successMessage"] = "You are a registered user now.";
             return RedirectToAction("Index", "Login");
 
            

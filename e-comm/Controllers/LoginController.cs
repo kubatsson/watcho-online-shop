@@ -58,25 +58,28 @@ namespace e_comm.Controllers
             else
             {
                 HttpContext.setLoggedUser(useracc, true);
+                TempData["successMessage"] = "Successful registration!";
                 return RedirectToAction("Index", "Registration");
+               
             }          
         }
         public IActionResult ForgotPassword()
         {
+
             return View();
         }
 
         public IActionResult SendConfirmation(ForgotPasswordVM model)
         {
             if (!ModelState.IsValid)
-                return RedirectToAction("SendConfirmation", model);
+                return RedirectToAction("ForgotPassword");
 
             User user = con.Users.SingleOrDefault(i => i.Email == model.Email);
 
             if (user == null)
             {
-                TempData["errorMessage"] = "Email address doesn't exist.";
-                return RedirectToAction("SendConfirmation", model);
+                TempData["errorMessage"] = "Email address doesn't exist. Make sure that you enter a valid email address.";
+                return RedirectToAction("ForgotPassword");
             }
 
             ChangePasswordCode changepw = con.ChangePasswords.SingleOrDefault
@@ -87,7 +90,7 @@ namespace e_comm.Controllers
                 if ((DateTime.Now - changepw.Created).TotalHours < 24)
                 {
                     TempData["errorMessage"] = "Email has been already sent to this email address";
-                    return RedirectToAction("SendConfirmation", model);
+                    return RedirectToAction("ForgotPassword");
                 }
                 else
                 {
