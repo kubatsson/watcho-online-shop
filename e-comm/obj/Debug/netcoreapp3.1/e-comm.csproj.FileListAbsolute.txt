@@ -97,7 +97,12 @@ C:\Users\adisk\Desktop\watches\e-commerce\e-comm\bin\Debug\netcoreapp3.1\runtime
 C:\Users\adisk\Desktop\watches\e-commerce\e-comm\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\adisk\Desktop\watches\e-commerce\e-comm\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\adisk\Desktop\watches\e-commerce\e-comm\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\e-comm.csproj.CoreCompileInputs.cache
-C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\e-comm.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\Razor\Views\Login\Index.cshtml.g.cs
 C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\Razor\Views\Registration\Index.cshtml.g.cs
+C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\Razor\Views\Login\ChangePassword.cshtml.g.cs
+C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\Razor\Views\Login\ForgotPassword.cshtml.g.cs
+C:\Users\adisk\Desktop\watches\e-commerce\e-comm\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Users\adisk\Desktop\watches\e-commerce\e-comm\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\adisk\Desktop\watches\e-commerce\e-comm\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\e-comm.csproj.CoreCompileInputs.cache
+C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\e-comm.MvcApplicationPartsAssemblyInfo.cache
