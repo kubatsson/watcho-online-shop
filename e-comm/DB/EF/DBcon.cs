@@ -15,6 +15,7 @@ namespace e_comm.DB.EF
         public DbSet<Payment> Payments { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Token> Tokens { get; set; }
+        public DbSet<ChangePasswordCode> ChangePasswords { get; set; }
 
 
         public DBcon(DbContextOptions<DBcon> options) : base(options) { }

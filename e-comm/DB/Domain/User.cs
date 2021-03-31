@@ -19,6 +19,8 @@ namespace e_comm.DB.Domain
         public string Username { get; set; }
         public int? TokenId { get; set; }
         public Token Token { get; set; }
+        public int? ChangePasswordId { get; set; }
+        public ChangePasswordCode ChangePassword { get; set; }
 
 
 
