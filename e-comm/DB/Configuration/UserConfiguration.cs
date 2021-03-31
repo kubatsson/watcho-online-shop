@@ -13,9 +13,6 @@ namespace e_comm.DB.Configuration
         {
             base.Configure(builder);
 
-            builder.HasOne(p => p.Token).WithOne(p => p.User).HasForeignKey<User>(p => p.TokenId);
-            builder.HasOne(p => p.ChangePassword).WithOne(p => p.User).HasForeignKey<User>(p => p.ChangePasswordId);
-
         }
     }
 }

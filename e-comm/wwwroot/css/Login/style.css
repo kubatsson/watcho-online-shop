@@ -1,18 +1,3 @@
-.top-margin-ten{
-    margin-top:10px;
-}
-.change-par{
-    color:azure;
-}
-
-.alert-login {
-    width: 370px !important;
-    margin: 30px auto 0px !important;
-}
-
-.error-email-text{
-    color:#931111;
-}
 
 html,
 body,
@@ -226,7 +211,7 @@ img {
 /*end reset*/
 
 body {
-    background: url("../../images/Login/1.jpeg") no-repeat;
+    background: url("../../images/Login/1.jpg") no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -274,7 +259,7 @@ h1 span {
 .sub-main-w3 form {
     max-width: 600px;
     margin: 0 5vw;
-    background-color:black;
+    background: rgba(12, 12, 12, 0.24);
     padding: 3.5vw;
     box-sizing: border-box;
     display: -webkit-flex;

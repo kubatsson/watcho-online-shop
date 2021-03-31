@@ -45,33 +45,6 @@ namespace e_comm.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("e_comm.DB.Domain.ChangePasswordCode", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ModifedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ChangePasswords");
-                });
-
             modelBuilder.Entity("e_comm.DB.Domain.Gender", b =>
                 {
                     b.Property<int>("Id")
@@ -91,22 +64,6 @@ namespace e_comm.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Genders");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedAt = new DateTime(2021, 3, 31, 14, 33, 18, 612, DateTimeKind.Utc).AddTicks(1048),
-                            GenderName = "Male",
-                            ModifedAt = new DateTime(2021, 3, 31, 14, 33, 18, 612, DateTimeKind.Utc).AddTicks(1048)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedAt = new DateTime(2021, 3, 31, 14, 33, 18, 612, DateTimeKind.Utc).AddTicks(3092),
-                            GenderName = "Female",
-                            ModifedAt = new DateTime(2021, 3, 31, 14, 33, 18, 612, DateTimeKind.Utc).AddTicks(3092)
-                        });
                 });
 
             modelBuilder.Entity("e_comm.DB.Domain.Payment", b =>
@@ -163,42 +120,12 @@ namespace e_comm.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("e_comm.DB.Domain.Token", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ModifedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Value")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tokens");
-                });
-
             modelBuilder.Entity("e_comm.DB.Domain.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("ChangePasswordId")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
@@ -227,23 +154,9 @@ namespace e_comm.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TokenId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("ChangePasswordId")
-                        .IsUnique()
-                        .HasFilter("[ChangePasswordId] IS NOT NULL");
-
                     b.HasIndex("GenderId");
-
-                    b.HasIndex("TokenId")
-                        .IsUnique()
-                        .HasFilter("[TokenId] IS NOT NULL");
 
                     b.ToTable("Users");
                 });
@@ -291,35 +204,18 @@ namespace e_comm.Migrations
 
             modelBuilder.Entity("e_comm.DB.Domain.User", b =>
                 {
-                    b.HasOne("e_comm.DB.Domain.ChangePasswordCode", "ChangePassword")
-                        .WithOne("User")
-                        .HasForeignKey("e_comm.DB.Domain.User", "ChangePasswordId");
-
                     b.HasOne("e_comm.DB.Domain.Gender", "Gender")
                         .WithMany("Users")
                         .HasForeignKey("GenderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("e_comm.DB.Domain.Token", "Token")
-                        .WithOne("User")
-                        .HasForeignKey("e_comm.DB.Domain.User", "TokenId");
-
-                    b.Navigation("ChangePassword");
-
                     b.Navigation("Gender");
-
-                    b.Navigation("Token");
                 });
 
             modelBuilder.Entity("e_comm.DB.Domain.Category", b =>
                 {
                     b.Navigation("Products");
-                });
-
-            modelBuilder.Entity("e_comm.DB.Domain.ChangePasswordCode", b =>
-                {
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("e_comm.DB.Domain.Gender", b =>
@@ -330,11 +226,6 @@ namespace e_comm.Migrations
             modelBuilder.Entity("e_comm.DB.Domain.Product", b =>
                 {
                     b.Navigation("Payments");
-                });
-
-            modelBuilder.Entity("e_comm.DB.Domain.Token", b =>
-                {
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("e_comm.DB.Domain.User", b =>

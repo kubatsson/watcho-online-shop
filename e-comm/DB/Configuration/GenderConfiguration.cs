@@ -16,23 +16,6 @@ namespace e_comm.DB.Configuration
             builder.HasMany(p => p.Users)
                    .WithOne(p => p.Gender)
                    .HasForeignKey(p => p.GenderId);
-
-            builder.HasData(new Gender[]
-            {
-                new Gender
-                {
-                    Id = 1,
-                    GenderName="Male",
-                   
-                },
-                new Gender
-                {
-                    Id = 2,
-                    GenderName="Female",
-                    
-                },
-               
-            });
         }
     }
 }
