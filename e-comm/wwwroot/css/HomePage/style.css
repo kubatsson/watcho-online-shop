@@ -1,11 +1,53 @@
 #special{
 	background-color:black;
 }
+.p1-first {
+	
+	color:black;
+	text-align:center;
+	font-size:large;
+	font:bold;
+}
+.p2-second {
+	color: black;
+	text-align: center;
+}
 #special2{
 	background-color:black;
 }
-body{
-	background:#fff;
+.special3 i {
+	color:greenyellow;
+}
+.inline {
+	
+	
+	margin: 10px 10px;
+	margin-bottom:150px;
+	margin-left:100px;
+	
+	height: 252px;
+	width: 252px;
+	
+	display:inline-block;
+    border:none;
+}
+
+.inline img{
+	width:100%;
+	height:auto;
+}
+
+.banner1 {
+	margin-left:9%;
+	background-color: white;
+	width: 90%;
+	min-height: 660px;
+	position: relative;
+	
+}
+
+body {
+	background: #fff;
 	font-family: 'Roboto', sans-serif;
 }
  a{
@@ -2372,6 +2414,7 @@ a.item_add p.number {
 .top-in2 span {
   padding: 1.15em 0 0;
 }
+	
 .top-in2 {
   min-height: 81px;
 }
