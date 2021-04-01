@@ -106,3 +106,4 @@ C:\Users\adisk\Desktop\watches\e-commerce\e-comm\bin\Debug\netcoreapp3.1\BouncyC
 C:\Users\adisk\Desktop\watches\e-commerce\e-comm\bin\Debug\netcoreapp3.1\MailKit.dll
 C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\e-comm.csproj.CoreCompileInputs.cache
 C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\e-comm.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\Razor\Views\HomePage\Index.cshtml.g.cs
