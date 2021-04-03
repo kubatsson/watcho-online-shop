@@ -57,10 +57,11 @@ namespace e_comm.Helpers
             if (token == null)
                 return null;
 
-            return dbContext.Tokens
-                .Where(x => x.Value == token)
-                .Select(s => s.User)
-                .SingleOrDefault();
+            int value = dbContext.Tokens.Where(x => x.Value == token).Select(s => s.UserId).FirstOrDefault();
+
+            User user = dbContext.Users.Find(value);
+
+            return user;
         }
 
         public static string GetCurrentCookie(this HttpContext context)

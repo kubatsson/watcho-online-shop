@@ -37,6 +37,23 @@ namespace e_comm.Controllers
             hm.logged = logged;
             return View(hm);
         }
+
+        public IActionResult Logout(bool logged = false)
+        {
+            HomePageIndexVM hm = new HomePageIndexVM
+            {
+
+                Rows = con.Products.Where(x => x.Id <= 6).Select(x => new HomePageIndexVM.Row
+                {
+                    Route = x.ImageRoute,
+                }
+                ).ToList(),
+                Categories = con.Categories.Select(x => x).ToList()
+
+            };
+            hm.logged = logged;
+            return View(hm);
+        }
         public IActionResult ProductListing(int GenderId=0,int CategoryId=0,bool logged=false,string search=null)
         {
             ProductListingVM hm = new ProductListingVM();
@@ -91,6 +108,8 @@ namespace e_comm.Controllers
 
 
         }
+
+        
         public IActionResult BrandListing(bool logged=false)
         {
             BrandListingVM hm = new BrandListingVM
@@ -107,6 +126,8 @@ namespace e_comm.Controllers
 
             return View(hm);
         }
+
+        //search bar
         public IActionResult Search(HomePageIndexVM modelH=null,BrandListingVM modelB=null,ProductListingVM modelP=null )
         {
             string search = null;

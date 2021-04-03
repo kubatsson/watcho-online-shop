@@ -58,7 +58,7 @@ namespace e_comm.Controllers
             else
             {
                 HttpContext.setLoggedUser(useracc, true);
-                TempData["successMessage"] = "Successful registration!";
+               
                 
                 
 
@@ -159,6 +159,38 @@ namespace e_comm.Controllers
 
             TempData["successMessage"] = "Your password is successfully changed.";
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Logout()
+        {
+            User useracc = HttpContext.GetLoggedUser();
+
+            if (useracc == null)
+                return RedirectToAction("HomePage", "Index");
+
+            string currentToken = HttpContext.GetCurrentCookie();
+
+            Token token = con.Tokens.SingleOrDefault
+                (x => x.UserId == useracc.Id && x.Value == currentToken);
+
+            con.Tokens.Remove(token);
+
+            //List<Token> tokens = con.Tokens.Where
+            //    (x => (DateTime.Now - x.Created).TotalHours >= 24 && x.UserId == useracc.Id).ToList();
+
+            foreach (Token t in con.Tokens)
+            {
+                if (t.UserId == useracc.Id)
+                {
+                    con.Tokens.Remove(t);
+                }
+            }
+
+            con.SaveChanges();
+
+            Response.Cookies.Delete("loggedUser");
+
+            return RedirectToAction("Index", "HomePage", new { logged=false});
         }
 
 
