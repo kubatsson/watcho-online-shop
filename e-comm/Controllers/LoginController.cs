@@ -59,7 +59,11 @@ namespace e_comm.Controllers
             {
                 HttpContext.setLoggedUser(useracc, true);
                 TempData["successMessage"] = "Successful registration!";
-                return RedirectToAction("Index", "Registration");
+                
+                
+
+                return RedirectToAction("Index", "HomePage" ,new { logged=true });
+
                
             }          
         }

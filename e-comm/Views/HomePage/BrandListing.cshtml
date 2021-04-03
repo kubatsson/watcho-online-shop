@@ -1,21 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@{
-    Layout = null;
-}
+﻿
 
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
 @{
     Layout = null;
 }
-@model e_comm.ViewModels.HomePage.ProductListingVM
+@model e_comm.ViewModels.HomePage.BrandListingVM
 
 <!DOCTYPE html>
 <html>
@@ -43,7 +31,7 @@
         <div class="header-top">
             <div class="container">
                 <div class="search">
-                    <form asp-action="Search"  asp-route-modelB="@Model" asp-route-modelH="@Model">
+                    <form asp-action="Search"  asp-route-modelH="@Model" asp-route-modelP="@Model">
                         <input type="text" placeholder="Search" asp-for="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'search';}">
                         <input type="text" style="display:none;" value="@Model.logged" asp-for="loggedString">
                         <input type="submit" value="Go">
@@ -61,8 +49,6 @@
                             <li><a asp-controller="Login" asp-action="Index">Log out</a></li>
 
                         }
-
-
 
                     </ul>
 
@@ -101,23 +87,11 @@
     <div class="banner1">
         @foreach (var item in Model.Rows)
         {
-            <div class="inline"><img src="@item.Route" alt="" /><p class="p1-first">@item.ProductName</p> <p class="p2-second">@item.Price$</p> <p class="p2-second">This is good watch</p> </div>
-            
-            
+            <div class="inline"><a asp-action="ProductListing" asp-route-CategoryId="@item.CategoryId" asp-route-logged="@Model.logged"><img src="@item.Route" alt="" /><p class="p1-first">@item.ProductName</p></a>   </div>
+
+
         }
-        @*<div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"><img src="../images/HomePage/xdss.jpg" alt="" /></div>*@
+        
 
 
 
@@ -125,7 +99,7 @@
 
     <!--content-->
     <div id="special2" class="content">
-        
+
         <div class="footer">
             <div class="container">
                 <div class="footer-top-at">

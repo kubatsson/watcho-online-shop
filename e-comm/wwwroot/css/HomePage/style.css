@@ -1,6 +1,17 @@
 #special{
 	background-color:black;
 }
+
+
+/*.dropdown-content{
+	display:none;
+}
+.dropdown a{
+	color:black;
+}
+.dropdown:hover .dropdown-content{
+	display:block;
+}*/
 .p1-first {
 	
 	color:black;
@@ -34,7 +45,7 @@
 
 .inline img{
 	width:100%;
-	height:auto;
+	height:100%;
 }
 
 .banner1 {
