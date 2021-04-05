@@ -61,9 +61,6 @@
                             <li><a asp-controller="Login" asp-action="Logout">Log out</a></li>
 
                         }
-
-
-
                     </ul>
 
                     <div class="clearfix"> </div>
@@ -88,7 +85,7 @@
 
                         <li><a asp-action="BrandListing" asp-route-logged="@Model.logged" class="color1">Brands</a></li>
 
-                        <li><a class="color1" href="contact.html">Get in touch</a></li>
+                        <li><a class="color1" asp-action="ContactUs" asp-route-logged="@Model.logged">Get in touch</a></li>
                     </ul>
                 </div>
                 <a></a>
@@ -104,25 +101,8 @@
             <div class="inline"><img src="@item.Route" alt="" /><p class="p1-first">@item.ProductName</p> <p class="p2-second">@item.Price$</p> <p class="p2-second">This is good watch</p> </div>
             
             
-        }
-        @*<div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"></div>
-        <div class="inline"><img src="../images/HomePage/xdss.jpg" alt="" /></div>*@
-
-
-
+        }      
     </div>
-
     <!--content-->
     <div id="special2" class="content">
         

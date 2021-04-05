@@ -706,6 +706,8 @@ ul.social li i:hover{
 }
 .send input[type="submit"]{
 	width: 14%;
+	
+	margin:auto;
 	font-size: 1.1em;
 	background:#EF5F21;
 	padding: 0.4em 0.8em;
@@ -719,7 +721,8 @@ ul.social li i:hover{
 	background:#2d2d2d;
 }
 .contact-form {
-	padding: 3em 0;
+	margin-left:19%;
+	width:100%;
 }
 .address-more {
   padding: 0 0 2em;

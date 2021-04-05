@@ -8,6 +8,7 @@ using e_comm.ViewModels.Registration;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using e_comm.Helpers;
 
 namespace e_comm.Controllers
 {
@@ -21,18 +22,18 @@ namespace e_comm.Controllers
             con = _con;
             _configuration = configuration;
         }
+
         public IActionResult Index(bool logged=false)
         {
             HomePageIndexVM hm = new HomePageIndexVM
-            {
-                
+            {                
                 Rows = con.Products.Where(x => x.Id <= 6).Select(x => new HomePageIndexVM.Row
                 {
                     Route = x.ImageRoute,
                 }
                 ).ToList(),
-                Categories = con.Categories.Select(x => x).ToList()
 
+                Categories = con.Categories.Select(x => x).ToList()
             };
             hm.logged = logged;
             return View(hm);
@@ -42,18 +43,18 @@ namespace e_comm.Controllers
         {
             HomePageIndexVM hm = new HomePageIndexVM
             {
-
                 Rows = con.Products.Where(x => x.Id <= 6).Select(x => new HomePageIndexVM.Row
                 {
                     Route = x.ImageRoute,
                 }
                 ).ToList(),
-                Categories = con.Categories.Select(x => x).ToList()
 
+                Categories = con.Categories.Select(x => x).ToList()
             };
             hm.logged = logged;
             return View(hm);
         }
+
         public IActionResult ProductListing(int GenderId=0,int CategoryId=0,bool logged=false,string search=null)
         {
             ProductListingVM hm = new ProductListingVM();
@@ -68,12 +69,14 @@ namespace e_comm.Controllers
                     ShortDescription = x.ShortDescription,
                     Route = x.ImageRoute
                 }).ToList();
+
                 hm.Categories = con.Categories.Select(x => x).ToList();
+
                 hm.logged = logged;
                 return View(hm);
-            }
+            }          
+            
 
-                                                           
                 if (CategoryId == 0)
                 {
                     hm.Rows = con.Products.Where(x => x.GenderId == GenderId).Select(x => new ProductListingVM.Row
@@ -85,11 +88,12 @@ namespace e_comm.Controllers
                         ShortDescription = x.ShortDescription,
                         Route = x.ImageRoute
                     }).ToList();
+
                     hm.Categories = con.Categories.Select(x => x).ToList();
+
                 hm.logged = logged;
                 return View(hm);
-
-            }
+                 }
                 hm.Rows = con.Products.Where(x => x.CategoryId == CategoryId).Select(x => new ProductListingVM.Row
                 {
                     Price = x.Price.ToString(),
@@ -101,14 +105,8 @@ namespace e_comm.Controllers
                 }).ToList();
 
                 hm.logged = logged;
-
-
-
-            return View(hm);
-
-
+                return View(hm);
         }
-
         
         public IActionResult BrandListing(bool logged=false)
         {
@@ -119,11 +117,10 @@ namespace e_comm.Controllers
                     ProductName=x.CategoryName,
                     Route=x.ImageRoute,
                     CategoryId=x.Id
-                }).ToList(),
-                
+                }).ToList(),               
             };
-            hm.logged = logged;
 
+            hm.logged = logged;
             return View(hm);
         }
 
@@ -149,14 +146,35 @@ namespace e_comm.Controllers
                 logged = bool.Parse(modelP.loggedString);
                 search = modelP.Search;
             }
-
-
             return RedirectToAction("ProductListing", new {logged=logged,search=search });
         }
 
+        public IActionResult ContactUs(bool logged=false)
+        {
+
+            ContactUsVM model = new ContactUsVM
+            {
+                logged = logged,
+
+            };
+
+            return View(model);
+        }
+
+        public IActionResult ContactUsSend(ContactUsVM model)
+        {
+         
 
 
+            string messageRequest = "Message from: " + model.Name + "\n Email address: "+model.Email+"\n Subject: "+model.Subject+"\n Message: "+model.Message;
+            string messageForUser = "We have successfully received your request and you will get an answer in short period!";    
 
+            
 
+            EmailSettings.SendEmail(_configuration, model.Name, model.Email, "Ticket confirmation", messageForUser);
+            EmailSettings.SendEmail(_configuration, "Adis Kubat", "adiskubatsson@gmail.com", "Message request", messageRequest);
+
+            return RedirectToAction("ContactUs");
+        }
     }
 }

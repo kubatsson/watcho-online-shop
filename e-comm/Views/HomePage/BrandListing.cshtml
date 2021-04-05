@@ -51,7 +51,6 @@
                         }
 
                     </ul>
-
                     <div class="clearfix"> </div>
                 </div>
                 <div class="clearfix"> </div>
@@ -70,11 +69,9 @@
                         <li class="grid">
                             <a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="2" asp-route-logged="@Model.logged">	Women</a>
                         </li>
-
-
                         <li><a asp-action="BrandListing" asp-route-logged="@Model.logged" class="color1">Brands</a></li>
 
-                        <li><a class="color1" href="contact.html">Get in touch</a></li>
+                        <li><a class="color1" asp-action="ContactUs" asp-route-logged="@Model.logged">Get in touch</a></li>
                     </ul>
                 </div>
                 <a></a>
@@ -90,11 +87,7 @@
             <div class="inline"><a asp-action="ProductListing" asp-route-CategoryId="@item.CategoryId" asp-route-logged="@Model.logged"><img src="@item.Route" alt="" /><p class="p1-first">@item.ProductName</p></a>   </div>
 
 
-        }
-        
-
-
-
+        }       
     </div>
 
     <!--content-->

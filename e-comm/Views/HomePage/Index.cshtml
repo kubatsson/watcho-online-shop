@@ -56,12 +56,8 @@
                             {
                                 <li><a asp-controller="Login" asp-action="Logout">Log out</a></li>
                                 
-                            }
-                           
-
-
+                            }                          
                         </ul>
-
                         <div class="clearfix"> </div>
                     </div>
                     <div class="clearfix"> </div>
@@ -76,20 +72,16 @@
                         <ul class="memenu skyblue">
                             <li class="active grid"><a class="color8" href="index.html">Home</a></li>
                             <li><a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="1" asp-route-logged="@Model.logged">Men</a></li>
-
                             <li class="grid">
                                 <a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="2" asp-route-logged="@Model.logged">	Women</a>
                             </li>
                             <li><a asp-action="BrandListing" asp-route-logged="@Model.logged" class="color1">Brands</a></li>
-                            <li><a class="color1" href="contact.html">Get in touch</a></li>
-
+                            <li><a class="color1" asp-action="ContactUs" asp-route-logged="@Model.logged">Get in touch</a></li>
                         </ul>
                     </div>
-
                     <div class="clearfix"> </div>
                 </div>
             </div>
-
         </div>
 
         <div class="banner">
@@ -194,7 +186,6 @@
                         <div class="clearfix"> </div>
                     </div>
                 </div>
-
 
             </div>
             <div class="footer">
