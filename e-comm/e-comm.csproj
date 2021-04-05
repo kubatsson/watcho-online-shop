@@ -24,8 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Home\Index.cshtml" />
-    <None Include="Views\Home\Privacy.cshtml" />
     <None Include="Views\Login\Index.cshtml" />
     <None Include="Views\Registration\Index.cshtml" />
     <None Include="Views\Shared\Error.cshtml" />

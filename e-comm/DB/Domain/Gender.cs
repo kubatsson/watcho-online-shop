@@ -10,5 +10,7 @@ namespace e_comm.DB.Domain
         public string GenderName { get; set; }
 
         public List <User> Users { get; set; }
+
+        public List<Product> Products { get; set; }
     }
 }

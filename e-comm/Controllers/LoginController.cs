@@ -32,10 +32,8 @@ namespace e_comm.Controllers
         {
             if (!ModelState.IsValid)
                 return RedirectToAction("Index");
-
             User useracc = null;
             bool check = false;
-
             foreach (var user in con.Users)
             {
                 byte[] temp = Convert.FromBase64String(user.PasswordSalt);
@@ -49,7 +47,6 @@ namespace e_comm.Controllers
                     break;
                 }
             }
-
             if (useracc == null)
             {
                 TempData["errorMessage"] = "Incorrect credentials, try again!";
@@ -57,15 +54,13 @@ namespace e_comm.Controllers
             }
             else
             {
-                HttpContext.setLoggedUser(useracc, true);
-                TempData["successMessage"] = "Successful registration!";
-                return RedirectToAction("Index", "Registration");
-               
+                HttpContext.setLoggedUser(useracc, true);                                             
+                return RedirectToAction("Index", "HomePage" ,new { logged=true });              
             }          
         }
+
         public IActionResult ForgotPassword()
         {
-
             return View();
         }
 
@@ -81,7 +76,6 @@ namespace e_comm.Controllers
                 TempData["errorMessage"] = "Email address doesn't exist. Make sure that you enter a valid email address.";
                 return RedirectToAction("ForgotPassword");
             }
-
             ChangePasswordCode changepw = con.ChangePasswords.SingleOrDefault
                (i => i.UserId == user.Id);
 
@@ -90,18 +84,20 @@ namespace e_comm.Controllers
                 if ((DateTime.Now - changepw.Created).TotalHours < 24)
                 {
                     TempData["errorMessage"] = "Email has been already sent to this email address";
+
                     return RedirectToAction("ForgotPassword");
                 }
                 else
                 {
                     con.ChangePasswords.Remove(changepw);
+
                     con.SaveChanges();
                 }
             }
             string messageReceiver = user.FirstName + " " + user.LastName;
 
-
             string value = RandomString.GetString(30);
+
             string link =
                 $"{ this.Request.Scheme}://{this.Request.Host}{this.Request.PathBase}/Login/ChangePassword?value=" + value;
 
@@ -119,18 +115,22 @@ namespace e_comm.Controllers
             };
 
             con.ChangePasswords.Add(passwordRequest);
+
             con.SaveChanges();
 
             TempData["successMessage"] = "Email for password confirmation is successfully sent. Check your inbox.";
+
             return RedirectToAction("Index");
             
         }
         public IActionResult ChangePassword(string value)
         {
             if (con.ChangePasswords.SingleOrDefault(i => i.Value == value) == null)
-                return RedirectToAction("Index");
+
+               return RedirectToAction("Index");
 
             TempData["value"] = value;
+
             return View("ChangePassword");
         }
 
@@ -155,6 +155,37 @@ namespace e_comm.Controllers
 
             TempData["successMessage"] = "Your password is successfully changed.";
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Logout()
+        {
+            User useracc = HttpContext.GetLoggedUser();
+
+            if (useracc == null)
+                return RedirectToAction("HomePage", "Index");
+
+            string currentToken = HttpContext.GetCurrentCookie();
+
+            Token token = con.Tokens.SingleOrDefault
+                (x => x.UserId == useracc.Id && x.Value == currentToken);
+
+            con.Tokens.Remove(token);
+
+            //List<Token> tokens = con.Tokens.Where
+            //    (x => (DateTime.Now - x.Created).TotalHours >= 24 && x.UserId == useracc.Id).ToList();
+
+            foreach (Token t in con.Tokens)
+            {
+                if (t.UserId == useracc.Id)
+                {
+                    con.Tokens.Remove(t);
+                }
+            }
+
+            con.SaveChanges();
+
+            Response.Cookies.Delete("loggedUser");
+            return RedirectToAction("Index", "HomePage", new { logged=false});
         }
 
 

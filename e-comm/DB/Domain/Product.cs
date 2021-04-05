@@ -7,9 +7,14 @@ namespace e_comm.DB.Domain
 {
     public class Product : Base
     {
-        public int ProductName { get; set; }
+        public string ProductName { get; set; }
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public List<Payment> Payments { get; set; }
+        public Gender Gender { get; set; }
+        public int GenderId { get; set; }
+        public string ImageRoute { get; set; }
+        public string ShortDescription { get; set; }
+        public double Price { get; set; }
     }
 }

@@ -35,6 +35,9 @@ namespace e_comm.Migrations
                     b.Property<int>("GenderId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ImageRoute")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("ModifedAt")
                         .HasColumnType("datetime2");
 
@@ -43,6 +46,80 @@ namespace e_comm.Migrations
                     b.HasIndex("GenderId");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryName = "Ade Kaye",
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(4811),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/adekayee.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(4811)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryName = "Bedat",
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6721),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/bedat.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6721)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryName = "Bertha",
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6777),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/bertha.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6777)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryName = "Eterna",
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6779),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/eterna.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6779)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryName = "Casio",
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6780),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/casio.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6780)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryName = "Rolex",
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6781),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/rolex.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6781)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CategoryName = "Omega",
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6782),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/omega.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6782)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryName = "Certina",
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6784),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/certina.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6784)
+                        });
                 });
 
             modelBuilder.Entity("e_comm.DB.Domain.ChangePasswordCode", b =>
@@ -96,16 +173,16 @@ namespace e_comm.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2021, 3, 31, 14, 33, 18, 612, DateTimeKind.Utc).AddTicks(1048),
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 25, DateTimeKind.Utc).AddTicks(3290),
                             GenderName = "Male",
-                            ModifedAt = new DateTime(2021, 3, 31, 14, 33, 18, 612, DateTimeKind.Utc).AddTicks(1048)
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 25, DateTimeKind.Utc).AddTicks(3290)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2021, 3, 31, 14, 33, 18, 612, DateTimeKind.Utc).AddTicks(3092),
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 25, DateTimeKind.Utc).AddTicks(4974),
                             GenderName = "Female",
-                            ModifedAt = new DateTime(2021, 3, 31, 14, 33, 18, 612, DateTimeKind.Utc).AddTicks(3092)
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 25, DateTimeKind.Utc).AddTicks(4974)
                         });
                 });
 
@@ -150,17 +227,405 @@ namespace e_comm.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("GenderId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImageRoute")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("ModifedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ProductName")
-                        .HasColumnType("int");
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShortDescription")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
+                    b.HasIndex("GenderId");
+
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 8,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(1645),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/certina-m/certina1.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(1645),
+                            Price = 299.99000000000001,
+                            ProductName = "Certina",
+                            ShortDescription = " DS Podium Automatic Grey Dial Men's Watch"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 8,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3282),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/certina-m/certina2.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3282),
+                            Price = 220.99000000000001,
+                            ProductName = "Certina",
+                            ShortDescription = "DS First Ceramic Black Leather Men's Watch"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 8,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3415),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/certina-m/certina3.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3415),
+                            Price = 529.99000000000001,
+                            ProductName = "Certina",
+                            ShortDescription = "DS-1 Big Date Automatic Men's Watch"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryId = 8,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3417),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/certina-m/certina4.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3417),
+                            Price = 189.99000000000001,
+                            ProductName = "Certina",
+                            ShortDescription = "DS Blue Ribbon Quartz Black Dial Men's Watch"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryId = 7,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3418),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/omega-m/omega1.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3418),
+                            Price = 3949.9899999999998,
+                            ProductName = "Omega",
+                            ShortDescription = "Seamaster Automatic Blue Dial Men's Watch"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryId = 7,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3419),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/omega-m/omega2.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3419),
+                            Price = 3919.9899999999998,
+                            ProductName = "Omega",
+                            ShortDescription = "Seamaster Automatic Grey Dial Men's Watch"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CategoryId = 7,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3421),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/omega-m/omega3.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3421),
+                            Price = 4099.9899999999998,
+                            ProductName = "Omega",
+                            ShortDescription = "Seamaster Automatic Grey Dial Men's Watch"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryId = 7,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3422),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/omega-m/omega4.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3422),
+                            Price = 5594.9899999999998,
+                            ProductName = "Omega",
+                            ShortDescription = "Seamaster Automatic Chronometer Men's"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CategoryId = 6,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3423),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/rolex-m/rolex1.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3423),
+                            Price = 8849.9899999999998,
+                            ProductName = "Rolex",
+                            ShortDescription = "Air King Black Dial Stainless Steel Men's"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CategoryId = 6,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3424),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/rolex-m/rolex2.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3424),
+                            Price = 14324.99,
+                            ProductName = "Rolex",
+                            ShortDescription = "Oyster Perpetual Submariner Black Dial Black Cerachrom Bezel Steel Men's Watch"
+                        },
+                        new
+                        {
+                            Id = 11,
+                            CategoryId = 6,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3425),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/rolex-m/rolex3.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3425),
+                            Price = 20149.990000000002,
+                            ProductName = "Rolex",
+                            ShortDescription = "Submariner Kermit Automatic Chronometer Black Dial Men's Watch"
+                        },
+                        new
+                        {
+                            Id = 12,
+                            CategoryId = 6,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3427),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/rolex-m/rolex4.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3427),
+                            Price = 7194.9899999999998,
+                            ProductName = "Rolex",
+                            ShortDescription = "Pre-owned Datejust 36 Automatic Diamond Blue Dial Men's Watch"
+                        },
+                        new
+                        {
+                            Id = 13,
+                            CategoryId = 5,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3428),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/casio-m/casio1.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3428),
+                            Price = 178.99000000000001,
+                            ProductName = "Casio",
+                            ShortDescription = "G-Shock Men's Analog-Digital Watch"
+                        },
+                        new
+                        {
+                            Id = 14,
+                            CategoryId = 5,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3429),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/casio-m/casio2.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3429),
+                            Price = 124.98999999999999,
+                            ProductName = "Casio",
+                            ShortDescription = "G Shock Analog-Digital Dial Black and Gold Resin Men's Watch GA110GB-1ACR"
+                        },
+                        new
+                        {
+                            Id = 15,
+                            CategoryId = 5,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3430),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/casio-m/casio3.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3430),
+                            Price = 74.989999999999995,
+                            ProductName = "Casio",
+                            ShortDescription = "G Shock Grey Digital Dial Resin Men's Watch"
+                        },
+                        new
+                        {
+                            Id = 16,
+                            CategoryId = 5,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3431),
+                            GenderId = 1,
+                            ImageRoute = "../images/HomePage/casio-m/casio4.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3431),
+                            Price = 59.990000000000002,
+                            ProductName = "Casio",
+                            ShortDescription = "G-Shock Military Men's Watch"
+                        },
+                        new
+                        {
+                            Id = 17,
+                            CategoryId = 1,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3433),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/adee kaye-f/ak-1.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3433),
+                            Price = 85.989999999999995,
+                            ProductName = "Adee Kaye",
+                            ShortDescription = "Exotic Snowflake Dial Ladies Watc"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            CategoryId = 1,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3434),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/adee kaye-f/ak-2.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3434),
+                            Price = 111.98999999999999,
+                            ProductName = "Adee Kaye",
+                            ShortDescription = "Yahtch II Blue Dia Ladies Chronograph Watch"
+                        },
+                        new
+                        {
+                            Id = 19,
+                            CategoryId = 1,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3437),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/adee kaye-f/ak-3.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3437),
+                            Price = 85.989999999999995,
+                            ProductName = "Adee Kaye",
+                            ShortDescription = "Beverly Hills Exotic Ladies Leather Watch"
+                        },
+                        new
+                        {
+                            Id = 20,
+                            CategoryId = 1,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3438),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/adee kaye-f/ak-4.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3438),
+                            Price = 85.989999999999995,
+                            ProductName = "Adee Kaye",
+                            ShortDescription = "Brown Dial Ladies Crystal Watch"
+                        },
+                        new
+                        {
+                            Id = 21,
+                            CategoryId = 2,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3439),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/bedat-f/bedat1.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3439),
+                            Price = 5674.9899999999998,
+                            ProductName = "Bedat",
+                            ShortDescription = "No. 3 Diamond Steel Ladies Watch"
+                        },
+                        new
+                        {
+                            Id = 22,
+                            CategoryId = 2,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3441),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/bedat-f/bedat2.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3441),
+                            Price = 4619.9899999999998,
+                            ProductName = "Bedat",
+                            ShortDescription = "No 2 Mother of Pearl Diamond Stainless Steel Ladies Watch"
+                        },
+                        new
+                        {
+                            Id = 23,
+                            CategoryId = 2,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3442),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/bedat-f/bedat3.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3442),
+                            Price = 1119.99,
+                            ProductName = "Bedat",
+                            ShortDescription = "No 3 Silver Dial Stainless Steel Ladies Watch"
+                        },
+                        new
+                        {
+                            Id = 24,
+                            CategoryId = 3,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3444),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/bertha-f/bertha1.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3444),
+                            Price = 139.99000000000001,
+                            ProductName = "Bertha",
+                            ShortDescription = "Dolly Quartz Silver Dial Ladies Watch"
+                        },
+                        new
+                        {
+                            Id = 25,
+                            CategoryId = 3,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3445),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/bertha-f/bertha2.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3445),
+                            Price = 119.98999999999999,
+                            ProductName = "Bertha",
+                            ShortDescription = "Cecelia Crystal Green Dial Green Leather Ladies Watch"
+                        },
+                        new
+                        {
+                            Id = 26,
+                            CategoryId = 3,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3446),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/bertha-f/bertha3.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3446),
+                            Price = 249.99000000000001,
+                            ProductName = "Bertha",
+                            ShortDescription = "Cecelia Crystal Green Dial Green Leather Ladies Watch"
+                        },
+                        new
+                        {
+                            Id = 27,
+                            CategoryId = 3,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3447),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/bertha-f/bertha4.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3447),
+                            Price = 179.99000000000001,
+                            ProductName = "Bertha",
+                            ShortDescription = "Dixie Quartz Crystal Silver Dial Ladies Watch"
+                        },
+                        new
+                        {
+                            Id = 28,
+                            CategoryId = 4,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3448),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/eterna-f/eterna1.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3448),
+                            Price = 174.99000000000001,
+                            ProductName = "Eterna",
+                            ShortDescription = "Eternity Quartz Diamond White Dial Ladies"
+                        },
+                        new
+                        {
+                            Id = 29,
+                            CategoryId = 4,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3450),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/eterna-f/eterna2.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3450),
+                            Price = 209.99000000000001,
+                            ProductName = "Eterna",
+                            ShortDescription = "Eternity Quartz Diamond White Dial Ladies Watch"
+                        },
+                        new
+                        {
+                            Id = 30,
+                            CategoryId = 4,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3455),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/eterna-f/eterna3.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3455),
+                            Price = 1349.99,
+                            ProductName = "Eterna",
+                            ShortDescription = "Grace Open Art Automatic Mother of Pearl Diamond Ladies Watch"
+                        },
+                        new
+                        {
+                            Id = 31,
+                            CategoryId = 4,
+                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3457),
+                            GenderId = 2,
+                            ImageRoute = "../images/HomePage/eterna-f/eterna4.jpg",
+                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3457),
+                            Price = 174.99000000000001,
+                            ProductName = "Eterna",
+                            ShortDescription = "Eternity Quartz Diamond White Dial Ladies Watch"
+                        });
                 });
 
             modelBuilder.Entity("e_comm.DB.Domain.Token", b =>
@@ -286,7 +751,15 @@ namespace e_comm.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("e_comm.DB.Domain.Gender", "Gender")
+                        .WithMany("Products")
+                        .HasForeignKey("GenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Category");
+
+                    b.Navigation("Gender");
                 });
 
             modelBuilder.Entity("e_comm.DB.Domain.User", b =>
@@ -324,6 +797,8 @@ namespace e_comm.Migrations
 
             modelBuilder.Entity("e_comm.DB.Domain.Gender", b =>
                 {
+                    b.Navigation("Products");
+
                     b.Navigation("Users");
                 });
 

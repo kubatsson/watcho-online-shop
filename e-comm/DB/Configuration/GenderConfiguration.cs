@@ -17,6 +17,10 @@ namespace e_comm.DB.Configuration
                    .WithOne(p => p.Gender)
                    .HasForeignKey(p => p.GenderId);
 
+            builder.HasMany(p => p.Products)
+                   .WithOne(p => p.Gender)
+                   .HasForeignKey(p => p.GenderId);
+
             builder.HasData(new Gender[]
             {
                 new Gender

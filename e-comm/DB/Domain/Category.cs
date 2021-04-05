@@ -11,6 +11,7 @@ namespace e_comm.DB.Domain
         public Gender Gender { get; set; }
         public int GenderId { get; set; }
         public List<Product> Products { get; set; }
+        public string ImageRoute { get; set; }
 
     }
 }
