@@ -98,7 +98,7 @@
     <div class="banner1">
         @foreach (var item in Model.Rows)
         {
-            <div class="inline"><img src="@item.Route" alt="" /><p class="p1-first">@item.ProductName</p> <p class="p2-second">@item.Price$</p> <p class="p2-second">This is good watch</p> </div>
+            <div class="inline"><img src="@item.Route" alt="" /><p class="p1-first">@item.ProductName</p> <p class="p2-second">@item.Price$</p> <p class="p2-second">@item.ShortDescription</p><a id="btn-special" class="btn btn-primary" asp-controller="Product" asp-action="ProductProfile" asp-route-ProductId="@item.Id" >Buy Now</a> </div>
             
             
         }      

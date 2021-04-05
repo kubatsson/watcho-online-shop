@@ -15,6 +15,8 @@ namespace e_comm.ViewModels.HomePage
         public string Search { get; set; }
         public class Row
         {
+
+            public int Id { get; set; }
             public string Route { get; set; }
             public string Price { get; set; }
             public string ProductName { get; set; }

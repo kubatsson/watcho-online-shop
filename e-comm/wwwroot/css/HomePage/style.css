@@ -704,6 +704,19 @@ ul.social li i:hover{
 .contact-grid textarea{
 	resize:none;
 }
+
+#btn-special{
+	margin-left:34%;
+	background-color:firebrick;
+	border:none;
+}
+.profile-content{
+	background-color:black;
+	width:100%;
+}
+	#btn-special:hover {
+		background-color: black;
+	}
 .send input[type="submit"]{
 	width: 14%;
 	

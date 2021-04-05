@@ -67,7 +67,9 @@ namespace e_comm.Controllers
                     CategoryId = x.CategoryId,
                     GenderId = x.GenderId,
                     ShortDescription = x.ShortDescription,
-                    Route = x.ImageRoute
+                    Route = x.ImageRoute,
+                    Id=x.Id
+                   
                 }).ToList();
 
                 hm.Categories = con.Categories.Select(x => x).ToList();
@@ -86,7 +88,9 @@ namespace e_comm.Controllers
                         CategoryId = x.CategoryId,
                         GenderId = x.GenderId,
                         ShortDescription = x.ShortDescription,
-                        Route = x.ImageRoute
+                        Route = x.ImageRoute,
+                        Id=x.Id
+
                     }).ToList();
 
                     hm.Categories = con.Categories.Select(x => x).ToList();
@@ -101,7 +105,8 @@ namespace e_comm.Controllers
                     CategoryId = x.CategoryId,
                     GenderId = x.GenderId,
                     ShortDescription = x.ShortDescription,
-                    Route = x.ImageRoute
+                    Route = x.ImageRoute,
+                    Id=x.Id
                 }).ToList();
 
                 hm.logged = logged;
