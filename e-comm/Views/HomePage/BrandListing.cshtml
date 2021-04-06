@@ -5,10 +5,12 @@
 }
 @model e_comm.ViewModels.HomePage.BrandListingVM
 
+@{ string logged = (string)TempData["logged"];}
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Home Page</title>
+    <title>Brands</title>
     <link href="../css/HomePage/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <script src="../js/HomePage/jquery.min.js"></script>
 
@@ -31,22 +33,21 @@
         <div class="header-top">
             <div class="container">
                 <div class="search">
-                    <form asp-action="Search"  asp-route-modelH="@Model" asp-route-modelP="@Model">
-                        <input type="text" placeholder="Search" asp-for="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'search';}">
-                        <input type="text" style="display:none;" value="@Model.logged" asp-for="loggedString">
+                    <form asp-action="Search" asp-route-modelH="@Model" asp-route-modelP="@Model">
+                        <input type="text" placeholder="Search" asp-for="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'search';}">                        
                         <input type="submit" value="Go">
                     </form>
                 </div>
                 <div class="header-left">
                     <ul>
-                        @if (Model.logged == false)
+                        @if (logged == null)
                         {
                             <li><a asp-controller="Login" asp-action="Index">Login</a></li>
                             <li><a asp-controller="Registration" asp-action="Index">Register</a></li>
                         }
                         else
                         {
-                            <li><a asp-controller="Login" asp-action="Logout" >Log out</a></li>
+                            <li><a asp-controller="Login" asp-action="Logout">Log out</a></li>
 
                         }
 
@@ -63,15 +64,15 @@
                 </div>
                 <div class=" h_menu4">
                     <ul class="memenu skyblue">
-                        <li class="active grid"><a class="color8" href="index.html">Home</a></li>
-                        <li><a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="1" asp-route-logged="@Model.logged">Men</a></li>
+                        <li class="active grid"><a class="color8" asp-action="Index">Home</a></li>
+                        <li><a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="1" >Men</a></li>
 
                         <li class="grid">
-                            <a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="2" asp-route-logged="@Model.logged">	Women</a>
+                            <a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="2">Women</a>
                         </li>
-                        <li><a asp-action="BrandListing" asp-route-logged="@Model.logged" class="color1">Brands</a></li>
+                        <li><a asp-action="BrandListing" class="color1">Brands</a></li>
 
-                        <li><a class="color1" asp-action="ContactUs" asp-route-logged="@Model.logged">Get in touch</a></li>
+                        <li><a class="color1" asp-action="ContactUs" >Get in touch</a></li>
                     </ul>
                 </div>
                 <a></a>
@@ -84,10 +85,10 @@
     <div class="banner1">
         @foreach (var item in Model.Rows)
         {
-            <div class="inline"><a asp-action="ProductListing" asp-route-CategoryId="@item.CategoryId" asp-route-logged="@Model.logged"><img src="@item.Route" alt="" /><p class="p1-first">@item.ProductName</p></a>   </div>
+            <div class="inline"><a asp-action="ProductListing" asp-route-CategoryId="@item.CategoryId" ><img src="@item.Route" alt="" /><p class="p1-first">@item.ProductName</p></a>   </div>
 
 
-        }       
+        }
     </div>
 
     <!--content-->
@@ -100,9 +101,9 @@
                     <div class="col-md-4 amet-sed">
                         <h4>MORE INFO</h4>
                         <ul class="nav-bottom">
-                            <li><a href="contact.html">Mans</a></li>
-                            <li><a href="#">Womans</a></li>                           
-                            <li><a href="#">Home</a></li>
+                            <li><a asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="1">Mans</a></li>
+                            <li><a asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="2">Womans</a></li>
+                            <li><a asp-action="Index">Home</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4 amet-sed ">
@@ -114,7 +115,7 @@
                         <p class="special3">Send an email to: eklinika22@outlook.com <i class="fas fa-at"></i></p>
 
 
-                        <p>Phone number: +38762 244 806 <i class="fas fa-phone-square"></i></p>
+                        <p>Phone number: +387 62 244 806 <i class="fas fa-phone-square"></i></p>
 
                     </div>
                     <div class="col-md-4 amet-sed">

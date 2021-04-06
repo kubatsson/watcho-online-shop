@@ -24,6 +24,11 @@ namespace e_comm.Controllers
 
         public IActionResult Index()
         {
+            if (HttpContext.GetLoggedUser() != null)
+            {
+                return RedirectToAction("Index", "HomePage");
+            }
+
             return View();
         }
 

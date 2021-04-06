@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using System.Threading.Tasks;
 using e_comm.DB.Domain;
 using e_comm.DB.EF;
@@ -8,6 +9,8 @@ using e_comm.Helpers;
 using e_comm.ViewModels.Login;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using MimeKit;
+using MailKit.Net.Smtp;
 
 namespace e_comm.Controllers
 {
@@ -25,6 +28,10 @@ namespace e_comm.Controllers
 
         public IActionResult Index()
         {
+            if (HttpContext.GetLoggedUser() != null)
+            {
+                return RedirectToAction("Index", "HomePage");
+            }
             return View();
         }
 
@@ -50,7 +57,7 @@ namespace e_comm.Controllers
             if (useracc == null)
             {
                 TempData["errorMessage"] = "Incorrect credentials, try again!";
-                return View(model);
+                return View("Index");
             }
             else
             {
@@ -61,6 +68,10 @@ namespace e_comm.Controllers
 
         public IActionResult ForgotPassword()
         {
+            if (HttpContext.GetLoggedUser() != null)
+            {
+                return RedirectToAction("Index", "HomePage");
+            }
             return View();
         }
 
@@ -94,7 +105,7 @@ namespace e_comm.Controllers
                     con.SaveChanges();
                 }
             }
-            string messageReceiver = user.FirstName + " " + user.LastName;
+            
 
             string value = RandomString.GetString(30);
 
@@ -105,7 +116,7 @@ namespace e_comm.Controllers
                 "\nIf you don't change your password in next 24 hours this link will disappear " +
                 "will be invalid.";
 
-            EmailSettings.SendEmail(_configuration, messageReceiver, user.Email, "Change password", message);
+            EmailSettings.SendEmail(_configuration, user.Username, user.Email, "Change password", message);
 
             ChangePasswordCode passwordRequest = new ChangePasswordCode
             {
@@ -125,6 +136,11 @@ namespace e_comm.Controllers
         }
         public IActionResult ChangePassword(string value)
         {
+            if (HttpContext.GetLoggedUser() != null)
+            {
+                return RedirectToAction("Index", "HomePage");
+            }
+
             if (con.ChangePasswords.SingleOrDefault(i => i.Value == value) == null)
 
                return RedirectToAction("Index");
@@ -185,7 +201,7 @@ namespace e_comm.Controllers
             con.SaveChanges();
 
             Response.Cookies.Delete("loggedUser");
-            return RedirectToAction("Index", "HomePage", new { logged=false});
+            return RedirectToAction("Index", "HomePage");
         }
 
 

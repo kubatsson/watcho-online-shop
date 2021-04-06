@@ -9,8 +9,7 @@ namespace e_comm.ViewModels.HomePage
     public class ContactUsVM
     {
         
-        public bool logged { get; set; }
-        public string loggedString { get; set; }
+       
 
         [Required]
         public string Name { get; set; }

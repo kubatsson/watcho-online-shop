@@ -16,6 +16,7 @@ namespace e_comm.DB.EF
         public DbSet<User> Users { get; set; }
         public DbSet<Token> Tokens { get; set; }
         public DbSet<ChangePasswordCode> ChangePasswords { get; set; }
+        public DbSet<BillingDetails> BillingDetails { get; set; }
 
 
         public DBcon(DbContextOptions<DBcon> options) : base(options) { }

@@ -10,7 +10,7 @@ using e_comm.DB.EF;
 namespace e_comm.Migrations
 {
     [DbContext(typeof(DBcon))]
-    [Migration("20210402071735_Initial and seed")]
+    [Migration("20210406135607_Initial and seed")]
     partial class Initialandseed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,6 +20,45 @@ namespace e_comm.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("e_comm.DB.Domain.BillingDetails", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Fullname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ModifedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("StreetAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Zip")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BillingDetails");
+                });
 
             modelBuilder.Entity("e_comm.DB.Domain.Category", b =>
                 {
@@ -54,73 +93,73 @@ namespace e_comm.Migrations
                         {
                             Id = 1,
                             CategoryName = "Ade Kaye",
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(4811),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(6433),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/adekayee.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(4811)
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(6433)
                         },
                         new
                         {
                             Id = 2,
                             CategoryName = "Bedat",
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6721),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9755),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/bedat.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6721)
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9755)
                         },
                         new
                         {
                             Id = 3,
                             CategoryName = "Bertha",
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6777),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9826),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/bertha.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6777)
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9826)
                         },
                         new
                         {
                             Id = 4,
                             CategoryName = "Eterna",
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6779),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9827),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/eterna.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6779)
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9827)
                         },
                         new
                         {
                             Id = 5,
                             CategoryName = "Casio",
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6780),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9829),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/casio.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6780)
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9829)
                         },
                         new
                         {
                             Id = 6,
                             CategoryName = "Rolex",
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6781),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9830),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/rolex.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6781)
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9830)
                         },
                         new
                         {
                             Id = 7,
                             CategoryName = "Omega",
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6782),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9831),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/omega.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6782)
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9831)
                         },
                         new
                         {
                             Id = 8,
                             CategoryName = "Certina",
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6784),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9833),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/certina.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 19, DateTimeKind.Utc).AddTicks(6784)
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 186, DateTimeKind.Utc).AddTicks(9833)
                         });
                 });
 
@@ -175,16 +214,16 @@ namespace e_comm.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 25, DateTimeKind.Utc).AddTicks(3290),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 189, DateTimeKind.Utc).AddTicks(8994),
                             GenderName = "Male",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 25, DateTimeKind.Utc).AddTicks(3290)
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 189, DateTimeKind.Utc).AddTicks(8994)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 25, DateTimeKind.Utc).AddTicks(4974),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 189, DateTimeKind.Utc).AddTicks(9530),
                             GenderName = "Female",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 25, DateTimeKind.Utc).AddTicks(4974)
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 189, DateTimeKind.Utc).AddTicks(9530)
                         });
                 });
 
@@ -260,10 +299,10 @@ namespace e_comm.Migrations
                         {
                             Id = 1,
                             CategoryId = 8,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(1645),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(5910),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/certina-m/certina1.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(1645),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(5910),
                             Price = 299.99000000000001,
                             ProductName = "Certina",
                             ShortDescription = " DS Podium Automatic Grey Dial Men's Watch"
@@ -272,10 +311,10 @@ namespace e_comm.Migrations
                         {
                             Id = 2,
                             CategoryId = 8,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3282),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(8942),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/certina-m/certina2.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3282),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(8942),
                             Price = 220.99000000000001,
                             ProductName = "Certina",
                             ShortDescription = "DS First Ceramic Black Leather Men's Watch"
@@ -284,10 +323,10 @@ namespace e_comm.Migrations
                         {
                             Id = 3,
                             CategoryId = 8,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3415),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(8989),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/certina-m/certina3.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3415),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(8989),
                             Price = 529.99000000000001,
                             ProductName = "Certina",
                             ShortDescription = "DS-1 Big Date Automatic Men's Watch"
@@ -296,22 +335,22 @@ namespace e_comm.Migrations
                         {
                             Id = 4,
                             CategoryId = 8,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3417),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(8991),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/certina-m/certina4.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3417),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(8991),
                             Price = 189.99000000000001,
                             ProductName = "Certina",
-                            ShortDescription = "DS Blue Ribbon Quartz Black Dial Men's Watch"
+                            ShortDescription = "DS Blue Ribbon Quartz Black"
                         },
                         new
                         {
                             Id = 5,
                             CategoryId = 7,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3418),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(8993),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/omega-m/omega1.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3418),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(8993),
                             Price = 3949.9899999999998,
                             ProductName = "Omega",
                             ShortDescription = "Seamaster Automatic Blue Dial Men's Watch"
@@ -320,10 +359,10 @@ namespace e_comm.Migrations
                         {
                             Id = 6,
                             CategoryId = 7,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3419),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9069),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/omega-m/omega2.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3419),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9069),
                             Price = 3919.9899999999998,
                             ProductName = "Omega",
                             ShortDescription = "Seamaster Automatic Grey Dial Men's Watch"
@@ -332,10 +371,10 @@ namespace e_comm.Migrations
                         {
                             Id = 7,
                             CategoryId = 7,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3421),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9071),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/omega-m/omega3.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3421),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9071),
                             Price = 4099.9899999999998,
                             ProductName = "Omega",
                             ShortDescription = "Seamaster Automatic Grey Dial Men's Watch"
@@ -344,10 +383,10 @@ namespace e_comm.Migrations
                         {
                             Id = 8,
                             CategoryId = 7,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3422),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9072),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/omega-m/omega4.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3422),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9072),
                             Price = 5594.9899999999998,
                             ProductName = "Omega",
                             ShortDescription = "Seamaster Automatic Chronometer Men's"
@@ -356,10 +395,10 @@ namespace e_comm.Migrations
                         {
                             Id = 9,
                             CategoryId = 6,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3423),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9073),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/rolex-m/rolex1.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3423),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9073),
                             Price = 8849.9899999999998,
                             ProductName = "Rolex",
                             ShortDescription = "Air King Black Dial Stainless Steel Men's"
@@ -368,46 +407,46 @@ namespace e_comm.Migrations
                         {
                             Id = 10,
                             CategoryId = 6,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3424),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9075),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/rolex-m/rolex2.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3424),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9075),
                             Price = 14324.99,
                             ProductName = "Rolex",
-                            ShortDescription = "Oyster Perpetual Submariner Black Dial Black Cerachrom Bezel Steel Men's Watch"
+                            ShortDescription = "Oyster Perpetual Submariner Black Dial "
                         },
                         new
                         {
                             Id = 11,
                             CategoryId = 6,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3425),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9076),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/rolex-m/rolex3.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3425),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9076),
                             Price = 20149.990000000002,
                             ProductName = "Rolex",
-                            ShortDescription = "Submariner Kermit Automatic Chronometer Black Dial Men's Watch"
+                            ShortDescription = "Submariner Kermit Automatic Chronometer "
                         },
                         new
                         {
                             Id = 12,
                             CategoryId = 6,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3427),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9077),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/rolex-m/rolex4.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3427),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9077),
                             Price = 7194.9899999999998,
                             ProductName = "Rolex",
-                            ShortDescription = "Pre-owned Datejust 36 Automatic Diamond Blue Dial Men's Watch"
+                            ShortDescription = "Pre-owned Datejust 36 Automatic Diamond"
                         },
                         new
                         {
                             Id = 13,
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3428),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9078),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/casio-m/casio1.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3428),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9078),
                             Price = 178.99000000000001,
                             ProductName = "Casio",
                             ShortDescription = "G-Shock Men's Analog-Digital Watch"
@@ -416,34 +455,34 @@ namespace e_comm.Migrations
                         {
                             Id = 14,
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3429),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9079),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/casio-m/casio2.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3429),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9079),
                             Price = 124.98999999999999,
                             ProductName = "Casio",
-                            ShortDescription = "G Shock Analog-Digital Dial Black and Gold Resin Men's Watch GA110GB-1ACR"
+                            ShortDescription = "G Shock Analog-Digital Dial Black "
                         },
                         new
                         {
                             Id = 15,
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3430),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9081),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/casio-m/casio3.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3430),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9081),
                             Price = 74.989999999999995,
                             ProductName = "Casio",
-                            ShortDescription = "G Shock Grey Digital Dial Resin Men's Watch"
+                            ShortDescription = "G Shock Grey Digital Dial Resin "
                         },
                         new
                         {
                             Id = 16,
                             CategoryId = 5,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3431),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9082),
                             GenderId = 1,
                             ImageRoute = "../images/HomePage/casio-m/casio4.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3431),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9082),
                             Price = 59.990000000000002,
                             ProductName = "Casio",
                             ShortDescription = "G-Shock Military Men's Watch"
@@ -452,10 +491,10 @@ namespace e_comm.Migrations
                         {
                             Id = 17,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3433),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9083),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/adee kaye-f/ak-1.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3433),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9083),
                             Price = 85.989999999999995,
                             ProductName = "Adee Kaye",
                             ShortDescription = "Exotic Snowflake Dial Ladies Watc"
@@ -464,10 +503,10 @@ namespace e_comm.Migrations
                         {
                             Id = 18,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3434),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9084),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/adee kaye-f/ak-2.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3434),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9084),
                             Price = 111.98999999999999,
                             ProductName = "Adee Kaye",
                             ShortDescription = "Yahtch II Blue Dia Ladies Chronograph Watch"
@@ -476,10 +515,10 @@ namespace e_comm.Migrations
                         {
                             Id = 19,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3437),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9086),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/adee kaye-f/ak-3.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3437),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9086),
                             Price = 85.989999999999995,
                             ProductName = "Adee Kaye",
                             ShortDescription = "Beverly Hills Exotic Ladies Leather Watch"
@@ -488,10 +527,10 @@ namespace e_comm.Migrations
                         {
                             Id = 20,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3438),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9087),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/adee kaye-f/ak-4.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3438),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9087),
                             Price = 85.989999999999995,
                             ProductName = "Adee Kaye",
                             ShortDescription = "Brown Dial Ladies Crystal Watch"
@@ -500,10 +539,10 @@ namespace e_comm.Migrations
                         {
                             Id = 21,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3439),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9088),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/bedat-f/bedat1.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3439),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9088),
                             Price = 5674.9899999999998,
                             ProductName = "Bedat",
                             ShortDescription = "No. 3 Diamond Steel Ladies Watch"
@@ -512,34 +551,34 @@ namespace e_comm.Migrations
                         {
                             Id = 22,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3441),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9089),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/bedat-f/bedat2.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3441),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9089),
                             Price = 4619.9899999999998,
                             ProductName = "Bedat",
-                            ShortDescription = "No 2 Mother of Pearl Diamond Stainless Steel Ladies Watch"
+                            ShortDescription = "No 2 Mother of Pearl Diamond Stainless "
                         },
                         new
                         {
                             Id = 23,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3442),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9090),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/bedat-f/bedat3.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3442),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9090),
                             Price = 1119.99,
                             ProductName = "Bedat",
-                            ShortDescription = "No 3 Silver Dial Stainless Steel Ladies Watch"
+                            ShortDescription = "No 3 Silver Dial Stainless Steel "
                         },
                         new
                         {
                             Id = 24,
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3444),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9091),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/bertha-f/bertha1.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3444),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9091),
                             Price = 139.99000000000001,
                             ProductName = "Bertha",
                             ShortDescription = "Dolly Quartz Silver Dial Ladies Watch"
@@ -548,46 +587,46 @@ namespace e_comm.Migrations
                         {
                             Id = 25,
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3445),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9093),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/bertha-f/bertha2.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3445),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9093),
                             Price = 119.98999999999999,
                             ProductName = "Bertha",
-                            ShortDescription = "Cecelia Crystal Green Dial Green Leather Ladies Watch"
+                            ShortDescription = "Cecelia Crystal Green Dial Green "
                         },
                         new
                         {
                             Id = 26,
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3446),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9094),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/bertha-f/bertha3.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3446),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9094),
                             Price = 249.99000000000001,
                             ProductName = "Bertha",
-                            ShortDescription = "Cecelia Crystal Green Dial Green Leather Ladies Watch"
+                            ShortDescription = "Cecelia Crystal Green Dial Green "
                         },
                         new
                         {
                             Id = 27,
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3447),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9095),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/bertha-f/bertha4.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3447),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9095),
                             Price = 179.99000000000001,
                             ProductName = "Bertha",
-                            ShortDescription = "Dixie Quartz Crystal Silver Dial Ladies Watch"
+                            ShortDescription = "Dixie Quartz Crystal Silver "
                         },
                         new
                         {
                             Id = 28,
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3448),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9096),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/eterna-f/eterna1.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3448),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9096),
                             Price = 174.99000000000001,
                             ProductName = "Eterna",
                             ShortDescription = "Eternity Quartz Diamond White Dial Ladies"
@@ -596,10 +635,10 @@ namespace e_comm.Migrations
                         {
                             Id = 29,
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3450),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9098),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/eterna-f/eterna2.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3450),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9098),
                             Price = 209.99000000000001,
                             ProductName = "Eterna",
                             ShortDescription = "Eternity Quartz Diamond White Dial Ladies Watch"
@@ -608,25 +647,25 @@ namespace e_comm.Migrations
                         {
                             Id = 30,
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3455),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9099),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/eterna-f/eterna3.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3455),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9099),
                             Price = 1349.99,
                             ProductName = "Eterna",
-                            ShortDescription = "Grace Open Art Automatic Mother of Pearl Diamond Ladies Watch"
+                            ShortDescription = "Grace Open Art Automatic Mother "
                         },
                         new
                         {
                             Id = 31,
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3457),
+                            CreatedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9100),
                             GenderId = 2,
                             ImageRoute = "../images/HomePage/eterna-f/eterna4.jpg",
-                            ModifedAt = new DateTime(2021, 4, 2, 7, 17, 35, 30, DateTimeKind.Utc).AddTicks(3457),
+                            ModifedAt = new DateTime(2021, 4, 6, 13, 56, 7, 193, DateTimeKind.Utc).AddTicks(9100),
                             Price = 174.99000000000001,
                             ProductName = "Eterna",
-                            ShortDescription = "Eternity Quartz Diamond White Dial Ladies Watch"
+                            ShortDescription = "Eternity Quartz Diamond White Dial "
                         });
                 });
 
@@ -664,6 +703,9 @@ namespace e_comm.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("BillingDetailsId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("ChangePasswordId")
                         .HasColumnType("int");
 
@@ -673,14 +715,8 @@ namespace e_comm.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("GenderId")
                         .HasColumnType("int");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("ModifedAt")
                         .HasColumnType("datetime2");
@@ -701,6 +737,10 @@ namespace e_comm.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BillingDetailsId")
+                        .IsUnique()
+                        .HasFilter("[BillingDetailsId] IS NOT NULL");
 
                     b.HasIndex("ChangePasswordId")
                         .IsUnique()
@@ -766,6 +806,10 @@ namespace e_comm.Migrations
 
             modelBuilder.Entity("e_comm.DB.Domain.User", b =>
                 {
+                    b.HasOne("e_comm.DB.Domain.BillingDetails", "BillingDetails")
+                        .WithOne("User")
+                        .HasForeignKey("e_comm.DB.Domain.User", "BillingDetailsId");
+
                     b.HasOne("e_comm.DB.Domain.ChangePasswordCode", "ChangePassword")
                         .WithOne("User")
                         .HasForeignKey("e_comm.DB.Domain.User", "ChangePasswordId");
@@ -780,11 +824,18 @@ namespace e_comm.Migrations
                         .WithOne("User")
                         .HasForeignKey("e_comm.DB.Domain.User", "TokenId");
 
+                    b.Navigation("BillingDetails");
+
                     b.Navigation("ChangePassword");
 
                     b.Navigation("Gender");
 
                     b.Navigation("Token");
+                });
+
+            modelBuilder.Entity("e_comm.DB.Domain.BillingDetails", b =>
+                {
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("e_comm.DB.Domain.Category", b =>

@@ -8,7 +8,7 @@ namespace e_comm.ViewModels.Payment
 {
     public class PaymentFirstVM
     {
-        
+        public int ProductId { get; set; }
         public string ProductName { get; set; }
         public int CategoryId { get; set; }                      
         public int GenderId { get; set; }
@@ -22,9 +22,7 @@ namespace e_comm.ViewModels.Payment
             [Required]
             public string FullName { get; set; }
             [Required]
-            public string Email { get; set; }
-            [Required]
-            public string PhoneNumber { get; set; }
+            public string Email { get; set; }          
             [Required]
             public string Zip { get; set; }
             [Required]

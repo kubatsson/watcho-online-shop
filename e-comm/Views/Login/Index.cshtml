@@ -13,7 +13,7 @@ string successMessage = (string)TempData["successMessage"];
 <html lang="zxx">
 
 <head>
-    <title>WATCHO - Login</title>
+    <title>Login</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
@@ -33,9 +33,12 @@ string successMessage = (string)TempData["successMessage"];
 
 </head>
 <body>
-    <h1>
-        W A T C H O
-    </h1>
+    <a asp-controller="HomePage" asp-action="Index">
+        <h1>
+            W A T C H O
+
+        </h1>
+    </a>
     <div class="sub-main-w3">
         <form id="login" asp-controller="Login" asp-action="SignIn">
             @if (successMessage != null)
