@@ -8,8 +8,7 @@ namespace e_comm.ViewModels.HomePage
     public class BrandListingVM
     {
         public List<Row> Rows { get; set; }
-        public bool logged { get; set; }
-        public string loggedString { get; set; }
+       
         public string Search { get; set; }
 
         public class Row

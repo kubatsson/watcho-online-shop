@@ -1,15 +1,21 @@
-﻿
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
 
 @{
     Layout = null;
 }
-@model e_comm.ViewModels.HomePage.ContactUsVM;
+@model e_comm.ViewModels.Payment.PaymentFirstVM
+
 @{ string logged = (string)TempData["logged"];}
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Contact us</title>
+    <title>Billing details</title>
     <link href="../css/HomePage/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <script src="../js/HomePage/jquery.min.js"></script>
 
@@ -34,16 +40,12 @@
 
                 <div class="header-left">
                     <ul>
-                        @if (logged == null)
-                        {
-                            <li><a asp-controller="Login" asp-action="Index">Login</a></li>
-                            <li><a asp-controller="Registration" asp-action="Index">Register</a></li>
-                        }
-                        else
+                        @if (logged != null)
                         {
                             <li><a asp-controller="Login" asp-action="Logout">Log out</a></li>
-
                         }
+
+
                     </ul>
 
                     <div class="clearfix"> </div>
@@ -58,7 +60,7 @@
                 </div>
                 <div class=" h_menu4">
                     <ul class="memenu skyblue">
-                        <li class="active grid"><a class="color8" asp-action="Index">Home</a></li>
+                        <li class="active grid"><a class="color8" asp-controller="HomePage" asp-action="Index">Home</a></li>
                         <li><a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="1" >Men</a></li>
 
                         <li class="grid">
@@ -66,9 +68,9 @@
                         </li>
 
 
-                        <li><a asp-action="BrandListing"  class="color1">Brands</a></li>
+                        <li><a asp-controller="HomePage" asp-action="BrandListing"  class="color1">Brands</a></li>
 
-                        <li><a class="color1" asp-action="ContactUs" >Get in touch</a></li>
+                        <li><a class="color1" asp-controller="HomePage"  asp-action="ContactUs" >Get in touch</a></li>
                     </ul>
                 </div>
                 <a></a>
@@ -78,31 +80,51 @@
 
     </div>
 
-    <div class="contact">
+    <div class="special-content">
 
-        <div class="container">
-            <h1>Contact</h1>
-            <div class="contact-form">
+        <div class="special-subcontent1">
+            <h1> Billing details</h1>
+            <div class="special-subcontent1-form">
+                <form asp-controller="Payment" asp-action="PaymentOption">
+                    <input type="text" asp-for="@Model.CustomerInfo.FullName" value="@Model.CustomerInfo.FullName" placeholder="Full name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}">
+                    <br />
 
-                <div class="col-md-8 contact-grid">
-                    <form asp-action="ContactUsSend">
-                        <input type="text" placeholder="Name" asp-for="Name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}">
+                    <input type="text" asp-for="@Model.CustomerInfo.Email" value="@Model.CustomerInfo.Email" placeholder="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}">
+                    <br />                   
+                    <br />
+                    <input type="text" asp-for="@Model.CustomerInfo.StreetAddress" value="@Model.CustomerInfo.StreetAddress" placeholder="Street address" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">
 
-                        <input type="text" placeholder="Email" asp-for="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}">
-                        <input type="text" placeholder="Subject" asp-for="Subject" value="Subject" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Subject';}">
-                        <input type="text" placeholder="Message" asp-for="Message" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">
-
-                        <div class="send">
-                            <input type="submit" value="Send">
-                        </div>
-                    </form>
-                </div>
+                    <input type="text" asp-for="@Model.CustomerInfo.Zip" value="@Model.CustomerInfo.Zip" placeholder="Zip" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">
+                    <input type="text" style="display:none;" asp-for="@Model.ProductName" placeholder="Zip" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">
+                    <input type="text" style="display:none;" asp-for="@Model.Price" placeholder="Zip" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">
+                    <input type="text" style="display:none;" asp-for="@Model.ProductId" value="@Model.ProductId" placeholder="Zip" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">
 
 
+
+                    <input type="text" asp-for="@Model.CustomerInfo.City" value="@Model.CustomerInfo.City" placeholder="City" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">
+                    <select asp-for="@Model.CustomerInfo.Country">
+                        <option>Bosnia and Herzegovina</option>
+                        <option>Croatia</option>
+                        <option>Serbia</option>
+                        <option>Slovenia</option>
+                        <option>USA</option>
+                        <option>Canada</option>
+                    </select>
+
+                    <button class="special-subcontent1-button" type="submit">Checkout</button>
+
+                </form>
             </div>
-
         </div>
 
+        <div class="special-subcontent2">
+            <div class="special-subcontent2-details">
+                <h2>Product name: @Model.ProductName</h2>
+                <h2>Description: @Model.ShortDescription</h2>
+                <h2>Price: @Model.Price$</h2>
+                <div class="special-subcontent2-image"><img src="@Model.ImageRoute" /></div>
+            </div>
+        </div>
     </div>
 
     <!--content-->
@@ -117,7 +139,7 @@
                         <ul class="nav-bottom">
                             <li><a asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="1">Mans</a></li>
                             <li><a asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="2">Womans</a></li>
-                            <li><a asp-action="Index">Home</a></li>
+                            <li><a asp-controller="HomePage" asp-action="Index">Home</a></li>
                         </ul>
                     </div>
                     <div class="col-md-4 amet-sed ">

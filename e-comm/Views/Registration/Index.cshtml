@@ -1,10 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
 @{
     Layout = null;
 }
 @model e_comm.ViewModels.Registration.RegistrationIndexVM;
+
 @{string errorMessage = (string)TempData["errorMessage"];
     string successMessage = (string)TempData["successMessage"];
 }
@@ -15,7 +14,7 @@
 <html lang="zxx">
 
 <head>
-    <title>WATCHO - Registration</title>
+    <title>Registration</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
@@ -94,7 +93,7 @@
             <div class="wthree-text">
                 <ul>
                     <li>
-                        <a href="#">Already have an account?</a>
+                        <a asp-controller="Login" asp-action="Index" >Already have an account?</a>
                     </li>
 
                 </ul>

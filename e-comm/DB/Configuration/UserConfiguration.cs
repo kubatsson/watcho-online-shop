@@ -15,6 +15,7 @@ namespace e_comm.DB.Configuration
 
             builder.HasOne(p => p.Token).WithOne(p => p.User).HasForeignKey<User>(p => p.TokenId);
             builder.HasOne(p => p.ChangePassword).WithOne(p => p.User).HasForeignKey<User>(p => p.ChangePasswordId);
+            builder.HasOne(p => p.BillingDetails).WithOne(p => p.User).HasForeignKey<User>(p => p.BillingDetailsId);
 
         }
     }

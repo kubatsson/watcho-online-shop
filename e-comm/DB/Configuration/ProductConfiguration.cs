@@ -54,7 +54,7 @@ namespace e_comm.DB.Configuration
                        GenderId = 1,
                        CategoryId = 8,
                        ImageRoute = "../images/HomePage/certina-m/certina4.jpg",
-                       ShortDescription = "DS Blue Ribbon Quartz Black Dial Men's Watch",
+                       ShortDescription = "DS Blue Ribbon Quartz Black",
                        Price =189.99,
 
                    },
@@ -120,7 +120,7 @@ namespace e_comm.DB.Configuration
                              GenderId = 1,
                              CategoryId = 6,
                              ImageRoute = "../images/HomePage/rolex-m/rolex2.jpg",
-                             ShortDescription = "Oyster Perpetual Submariner Black Dial Black Cerachrom Bezel Steel Men's Watch",
+                             ShortDescription = "Oyster Perpetual Submariner Black Dial ",
                              Price =14324.99,
 
                          },
@@ -131,7 +131,7 @@ namespace e_comm.DB.Configuration
                               GenderId = 1,
                               CategoryId = 6,
                               ImageRoute = "../images/HomePage/rolex-m/rolex3.jpg",
-                              ShortDescription = "Submariner Kermit Automatic Chronometer Black Dial Men's Watch",
+                              ShortDescription = "Submariner Kermit Automatic Chronometer ",
                               Price =20149.99,
 
                           },
@@ -142,7 +142,7 @@ namespace e_comm.DB.Configuration
                                GenderId = 1,
                                CategoryId = 6,
                                ImageRoute = "../images/HomePage/rolex-m/rolex4.jpg",
-                               ShortDescription = "Pre-owned Datejust 36 Automatic Diamond Blue Dial Men's Watch",
+                               ShortDescription = "Pre-owned Datejust 36 Automatic Diamond",
                                Price =7194.99,
 
                            },
@@ -164,7 +164,7 @@ namespace e_comm.DB.Configuration
                                  GenderId = 1,
                                  CategoryId = 5,
                                  ImageRoute = "../images/HomePage/casio-m/casio2.jpg",
-                                 ShortDescription = "G Shock Analog-Digital Dial Black and Gold Resin Men's Watch GA110GB-1ACR",
+                                 ShortDescription = "G Shock Analog-Digital Dial Black ",
                                  Price =124.99,
 
                              },
@@ -175,7 +175,7 @@ namespace e_comm.DB.Configuration
                                   GenderId = 1,
                                   CategoryId = 5,
                                   ImageRoute = "../images/HomePage/casio-m/casio3.jpg",
-                                  ShortDescription = "G Shock Grey Digital Dial Resin Men's Watch",
+                                  ShortDescription = "G Shock Grey Digital Dial Resin ",
                                   Price =74.99,
 
                               },
@@ -252,7 +252,7 @@ namespace e_comm.DB.Configuration
                                   GenderId = 2,
                                   CategoryId = 2,
                                   ImageRoute = "../images/HomePage/bedat-f/bedat2.jpg",
-                                  ShortDescription = "No 2 Mother of Pearl Diamond Stainless Steel Ladies Watch",
+                                  ShortDescription = "No 2 Mother of Pearl Diamond Stainless ",
                                   Price = 4619.99,
 
                               },
@@ -263,7 +263,7 @@ namespace e_comm.DB.Configuration
                                   GenderId = 2,
                                   CategoryId = 2,
                                   ImageRoute = "../images/HomePage/bedat-f/bedat3.jpg",
-                                  ShortDescription = "No 3 Silver Dial Stainless Steel Ladies Watch",
+                                  ShortDescription = "No 3 Silver Dial Stainless Steel ",
                                   Price = 1119.99,
 
                               },
@@ -285,7 +285,7 @@ namespace e_comm.DB.Configuration
                                   GenderId = 2,
                                   CategoryId = 3,
                                   ImageRoute = "../images/HomePage/bertha-f/bertha2.jpg",
-                                  ShortDescription = "Cecelia Crystal Green Dial Green Leather Ladies Watch",
+                                  ShortDescription = "Cecelia Crystal Green Dial Green ",
                                   Price = 119.99,
 
                               },
@@ -296,7 +296,7 @@ namespace e_comm.DB.Configuration
                                   GenderId = 2,
                                   CategoryId = 3,
                                   ImageRoute = "../images/HomePage/bertha-f/bertha3.jpg",
-                                  ShortDescription = "Cecelia Crystal Green Dial Green Leather Ladies Watch",
+                                  ShortDescription = "Cecelia Crystal Green Dial Green ",
                                   Price = 249.99,
 
                               },
@@ -307,7 +307,7 @@ namespace e_comm.DB.Configuration
                                   GenderId = 2,
                                   CategoryId = 3,
                                   ImageRoute = "../images/HomePage/bertha-f/bertha4.jpg",
-                                  ShortDescription = "Dixie Quartz Crystal Silver Dial Ladies Watch",
+                                  ShortDescription = "Dixie Quartz Crystal Silver ",
                                   Price = 179.99,
 
                               },
@@ -340,7 +340,7 @@ namespace e_comm.DB.Configuration
                                   GenderId = 2,
                                   CategoryId = 4,
                                   ImageRoute = "../images/HomePage/eterna-f/eterna3.jpg",
-                                  ShortDescription = "Grace Open Art Automatic Mother of Pearl Diamond Ladies Watch",
+                                  ShortDescription = "Grace Open Art Automatic Mother ",
                                   Price = 1349.99,
 
                               },
@@ -351,7 +351,7 @@ namespace e_comm.DB.Configuration
                                   GenderId = 2,
                                   CategoryId = 4,
                                   ImageRoute = "../images/HomePage/eterna-f/eterna4.jpg",
-                                  ShortDescription = "Eternity Quartz Diamond White Dial Ladies Watch",
+                                  ShortDescription = "Eternity Quartz Diamond White Dial ",
                                   Price = 174.99,
 
                               }

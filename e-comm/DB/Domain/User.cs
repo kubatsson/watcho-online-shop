@@ -7,9 +7,8 @@ namespace e_comm.DB.Domain
 {
     public class User : Base
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public Gender Gender { get; set; }
+        
+        public Gender Gender { get; set; }      
         public int GenderId { get; set; }
         public string Email { get; set; }
         public string PasswordHash { get; set; }
@@ -21,6 +20,8 @@ namespace e_comm.DB.Domain
         public Token Token { get; set; }
         public int? ChangePasswordId { get; set; }
         public ChangePasswordCode ChangePassword { get; set; }
+        public int? BillingDetailsId { get; set; }
+        public BillingDetails BillingDetails { get; set; }
 
 
 

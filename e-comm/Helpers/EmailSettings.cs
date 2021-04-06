@@ -24,6 +24,7 @@ namespace e_comm.Helpers
 
             using (var client = new SmtpClient())
             {
+                client.CheckCertificateRevocation = false;
                 client.Connect(configuration.GetValue<string>("SmtpSettings:ServerAddress"),
                     int.Parse(configuration.GetValue<string>("SmtpSettings:Port")), false);
                 client.Authenticate(configuration.GetValue<string>("EmailSettings:Email"),

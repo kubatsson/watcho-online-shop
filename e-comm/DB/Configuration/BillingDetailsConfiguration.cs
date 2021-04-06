@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace e_comm.Helpers
+namespace e_comm.DB.Configuration
 {
-    public static  class Logged
+    public class BillingDetailsConfiguration
     {
-        public static bool logged { get; set; }
     }
 }
