@@ -108,3 +108,5 @@ C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\Razor\V
 C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\Razor\Views\HomePage\ProductListing.cshtml.g.cs
 C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\Razor\Views\HomePage\BrandListing.cshtml.g.cs
 C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\Razor\Views\HomePage\ContactUs.cshtml.g.cs
+C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\Razor\Views\Payment\Index.cshtml.g.cs
+C:\Users\adisk\Desktop\watches\e-commerce\e-comm\obj\Debug\netcoreapp3.1\Razor\Views\Payment\PaymentOption.cshtml.g.cs

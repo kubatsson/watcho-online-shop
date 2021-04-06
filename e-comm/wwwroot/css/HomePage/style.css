@@ -1,8 +1,40 @@
 #special{
 	background-color:black;
 }
+.payment-content{
+	width:100%;
+	min-height:560px;
+}
+.payment-options-content{
+	background-color:deepskyblue;
+	width:400px;
+	height:380px;
+	border:double;
+	border-color:black;
+	margin:auto;
+	margin-top:40px;
+	border-radius:6px;
 
-
+}
+.payment-options-content h2{
+	text-align:center;
+	margin-top:80px;
+	
+}
+#paypal-btn {
+	    padding-top:16px;
+		margin-left:72px;
+		height:60px;
+		width:70%;
+		font-size:large;
+		margin-bottom:20px;
+}
+.paypal-div {
+		height: 150px;
+		width: 200px;
+		margin-left: 90px;
+		
+}
 /*.dropdown-content{
 	display:none;
 }
@@ -24,7 +56,8 @@
 	text-align: center;
 }
 #special2{
-	background-color:black;
+	
+	min-height:300px;
 }
 .special3 i {
 	color:greenyellow;
@@ -564,6 +597,7 @@ height: 35px;
 /*--footer--*/
 .footer{
 	background:#141414;
+	min-height:420px;
 }
 .amet-sed h4{
 	font-size: 1.5em;
@@ -575,6 +609,7 @@ height: 35px;
 }
 .footer-top-at {
   padding: 4em 0;
+  margin-top:60px;
 }
  ul.nav-bottom li{
 	list-style:none;
@@ -705,17 +740,87 @@ ul.social li i:hover{
 	resize:none;
 }
 
-#btn-special{
-	margin-left:34%;
-	background-color:firebrick;
+#btn-special {
+	margin-left: 34%;
+	background-color: #EF5F21;
+	border: none;
+}
+.special-content{
+	
 	border:none;
-}
-.profile-content{
-	background-color:black;
 	width:100%;
+	min-height:600px;
+	
 }
+.special-subcontent1 {
+	float: left;
+	
+	width: 60%;
+	min-height: 550px;
+	border:none;
+	
+}
+	.special-subcontent1 input[type=text], .special-subcontent1 select {
+		display: inline-block;
+		margin-top: 15px;
+		width: 80%;
+		height: 50px;
+	}
+	.special-subcontent1 h1{
+		text-align:center;
+		margin-top:8px;
+	}
+.special-subcontent1-button {
+	margin-top: 10px;
+	
+	width: 80%;
+	border-radius: 4px;
+	height: 50px;
+	font-size: large;
+	background-color: #EF5F21;
+}
+	.special-subcontent1-button:hover {
+	
+	background-color: white;
+	}
+.special-subcontent1-form {
+	padding-top: 5px;
+	padding-left: 30%;
+	padding-right: 10%;
+}
+	.special-subcontent2 {
+	float: left;
+	
+	width: 40%;
+	min-height: 550px;
+	border: none;
+	}
+
+.special-subcontent2-details {
+	
+	margin-top: 5%;
+	display: inline-block;
+}
+	.special-subcontent2-details h2 {
+			margin-left:30px;
+			padding-top: 30px;
+	}
+	.special-subcontent2-details a{
+		margin-left:35px;
+		width:300px;
+		
+	}
+	.special-subcontent2-image {
+	margin-top:30px;
+	display: inline-block;
+	width: 60%;
+	}
+	.special-subcontent2-image img {
+		width:65%;
+		height:40%;
+	}
 	#btn-special:hover {
-		background-color: black;
+	background-color: black;
 	}
 .send input[type="submit"]{
 	width: 14%;
@@ -1941,7 +2046,10 @@ h6.best2 {
   top: 45%;
 }
 .amet-sed {
-  margin-bottom: 2em;
+  
+  font-size:large;
+  width:400px;
+  height:400px;
 }
 .footer-top-at {
   padding: 3em 0px 2em;

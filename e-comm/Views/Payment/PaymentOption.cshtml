@@ -1,21 +1,9 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-@{
-    Layout = null;
-}
+﻿
 
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
 @{
     Layout = null;
 }
-@model e_comm.ViewModels.HomePage.ProductListingVM
+@model e_comm.ViewModels.Payment.PaymentOptionVM
 
 <!DOCTYPE html>
 <html>
@@ -42,27 +30,11 @@
     <div class="header">
         <div class="header-top">
             <div class="container">
-                <div class="search">
-                    <form asp-action="Search"  asp-route-modelB="@Model" asp-route-modelH="@Model">
-                        <input type="text" placeholder="Search" asp-for="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'search';}">
-                        <input type="text" style="display:none;" value="@Model.logged" asp-for="loggedString">
-                        <input type="submit" value="Go">
-                    </form>
-                </div>
+
                 <div class="header-left">
                     <ul>
-                        @if (Model.logged == false)
-                        {
-                            <li><a asp-controller="Login" asp-action="Index">Login</a></li>
-                            <li><a asp-controller="Registration" asp-action="Index">Register</a></li>
-                        }
-                        else
-                        {
-                            <li><a asp-controller="Login" asp-action="Logout">Log out</a></li>
-
-                        }
+                        <li><a asp-controller="Login" asp-action="Logout">Log out</a></li>
                     </ul>
-
                     <div class="clearfix"> </div>
                 </div>
                 <div class="clearfix"> </div>
@@ -76,16 +48,16 @@
                 <div class=" h_menu4">
                     <ul class="memenu skyblue">
                         <li class="active grid"><a class="color8" href="index.html">Home</a></li>
-                        <li><a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="1" asp-route-logged="@Model.logged">Men</a></li>
+                        <li><a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="1" asp-route-logged="True">Men</a></li>
 
                         <li class="grid">
-                            <a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="2" asp-route-logged="@Model.logged">	Women</a>
+                            <a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="2" asp-route-logged="True">	Women</a>
                         </li>
 
 
-                        <li><a asp-action="BrandListing" asp-route-logged="@Model.logged" class="color1">Brands</a></li>
+                        <li><a asp-action="BrandListing" asp-route-logged="True" class="color1">Brands</a></li>
 
-                        <li><a class="color1" asp-action="ContactUs" asp-route-logged="@Model.logged">Get in touch</a></li>
+                        <li><a class="color1" asp-action="ContactUs" asp-route-logged="True">Get in touch</a></li>
                     </ul>
                 </div>
                 <a></a>
@@ -95,17 +67,25 @@
 
     </div>
 
-    <div class="banner1">
-        @foreach (var item in Model.Rows)
-        {
-            <div class="inline"><img src="@item.Route" alt="" /><p class="p1-first">@item.ProductName</p> <p class="p2-second">@item.Price$</p> <p class="p2-second">@item.ShortDescription</p><a id="btn-special" class="btn btn-primary" asp-controller="Payment" asp-action="Index" asp-route-ProductId="@item.Id" asp-route-logged="@Model.logged" >Buy Now</a> </div>
-            
-            
-        }      
+    <div class="payment-content">
+        <div class="payment-options-content">
+            <h2>Paypal</h2>
+            <a>
+
+                <div class="paypal-div">
+
+                    <img src="http://pngimg.com/uploads/paypal/small/paypal_PNG7.png" />
+
+                </div>
+            </a>
+            <a class="btn btn-primary" id="paypal-btn" href="@Model.PaypalRoute" >Proceed to payment</a>
+        </div>
+        
     </div>
+
     <!--content-->
     <div id="special2" class="content">
-        
+
         <div class="footer">
             <div class="container">
                 <div class="footer-top-at">
@@ -114,7 +94,7 @@
                         <h4>MORE INFO</h4>
                         <ul class="nav-bottom">
                             <li><a href="contact.html">Mans</a></li>
-                            <li><a href="#">Womans</a></li>                           
+                            <li><a href="#">Womans</a></li>                            
                             <li><a href="#">Home</a></li>
                         </ul>
                     </div>
@@ -146,6 +126,8 @@
             </div>
 
         </div>
+    </div>
 </body>
 </html>
+
 
