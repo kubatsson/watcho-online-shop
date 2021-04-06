@@ -59,7 +59,7 @@ namespace e_comm
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Payment}/{action=PaymentSuccess}/{id?}");
+                    pattern: "{controller=HomePage}/{action=Index}/{id?}");
             });
         }
     }

@@ -8,13 +8,9 @@ namespace e_comm.ViewModels.HomePage
 {
     public class HomePageIndexVM
     {
-
         public List<Row> Rows { get; set; }
-        public List<Category> Categories { get; set; }
-
-        
+        public List<Category> Categories { get; set; }       
         public string Search { get; set; }
-
         public class Row
         {
             public int Id { get; set; }

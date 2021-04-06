@@ -1,35 +1,21 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-
+﻿
 @{
     Layout = null;
 }
 @model e_comm.ViewModels.Payment.PaymentFirstVM
 
 @{ string logged = (string)TempData["logged"];}
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Billing details</title>
     <link href="../css/HomePage/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <script src="../js/HomePage/jquery.min.js"></script>
-
     <link href="../css/HomePage/style.css" rel="stylesheet" type="text/css" media="all" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-
-
     <link href="../css/HomePage/memenu.css" rel="stylesheet" type="text/css" media="all" />
-
-
 
 </head>
 <body>
@@ -37,18 +23,14 @@
     <div class="header">
         <div class="header-top">
             <div class="container">
-
                 <div class="header-left">
                     <ul>
                         @if (logged != null)
                         {
                             <li><a asp-controller="Login" asp-action="Logout">Log out</a></li>
                         }
-
-
                     </ul>
-
-                    <div class="clearfix"> </div>
+                   <div class="clearfix"> </div>
                 </div>
                 <div class="clearfix"> </div>
             </div>
@@ -61,23 +43,18 @@
                 <div class=" h_menu4">
                     <ul class="memenu skyblue">
                         <li class="active grid"><a class="color8" asp-controller="HomePage" asp-action="Index">Home</a></li>
-                        <li><a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="1" >Men</a></li>
-
+                        <li><a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="1">Men</a></li>
                         <li class="grid">
-                            <a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="2" >	Women</a>
+                            <a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="2">	Women</a>
                         </li>
-
-
-                        <li><a asp-controller="HomePage" asp-action="BrandListing"  class="color1">Brands</a></li>
-
-                        <li><a class="color1" asp-controller="HomePage"  asp-action="ContactUs" >Get in touch</a></li>
+                        <li><a asp-controller="HomePage" asp-action="BrandListing" class="color1">Brands</a></li>
+                        <li><a class="color1" asp-controller="HomePage" asp-action="ContactUs">Get in touch</a></li>
                     </ul>
                 </div>
                 <a></a>
                 <div class="clearfix"> </div>
             </div>
         </div>
-
     </div>
 
     <div class="special-content">
@@ -85,23 +62,24 @@
         <div class="special-subcontent1">
             <h1> Billing details</h1>
             <div class="special-subcontent1-form">
-                <form asp-controller="Payment" asp-action="PaymentOption">
-                    <input type="text" asp-for="@Model.CustomerInfo.FullName" value="@Model.CustomerInfo.FullName" placeholder="Full name" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Name';}">
+                <form id="billing-details" asp-controller="Payment" asp-action="PaymentOption">
+                    <input type="text" name="Fullname" asp-for="@Model.CustomerInfo.FullName" value="@Model.CustomerInfo.FullName" placeholder="Full name">
+                    <small class="fullname-error-message text-muted"></small>
                     <br />
-
-                    <input type="text" asp-for="@Model.CustomerInfo.Email" value="@Model.CustomerInfo.Email" placeholder="Email" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Email';}">
-                    <br />                   
+                    <input type="text" name="Email" asp-for="@Model.CustomerInfo.Email" value="@Model.CustomerInfo.Email" placeholder="Email">
+                    <small class="email-error-message text-muted"></small>
                     <br />
-                    <input type="text" asp-for="@Model.CustomerInfo.StreetAddress" value="@Model.CustomerInfo.StreetAddress" placeholder="Street address" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">
-
-                    <input type="text" asp-for="@Model.CustomerInfo.Zip" value="@Model.CustomerInfo.Zip" placeholder="Zip" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">
-                    <input type="text" style="display:none;" asp-for="@Model.ProductName" placeholder="Zip" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">
-                    <input type="text" style="display:none;" asp-for="@Model.Price" placeholder="Zip" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">
-                    <input type="text" style="display:none;" asp-for="@Model.ProductId" value="@Model.ProductId" placeholder="Zip" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">
-
-
-
-                    <input type="text" asp-for="@Model.CustomerInfo.City" value="@Model.CustomerInfo.City" placeholder="City" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='Message';}">
+                    <input type="text" name="StreetAddress" asp-for="@Model.CustomerInfo.StreetAddress" value="@Model.CustomerInfo.StreetAddress" placeholder="Street address">
+                    <small class="streetaddress-error-message text-muted"></small>
+                    <input type="text" name="PhoneNumber" asp-for="@Model.CustomerInfo.PhoneNumber" value="@Model.CustomerInfo.PhoneNumber" placeholder="Phone number">
+                    <small class="phonenumber-error-message text-muted"></small>
+                    <input type="text" name="Zip" asp-for="@Model.CustomerInfo.Zip" value="@Model.CustomerInfo.Zip" placeholder="Zip">
+                    <small class="zip-error-message text-muted"></small>
+                    <input type="text" style="display:none;" asp-for="@Model.ProductName">
+                    <input type="text" style="display:none;" asp-for="@Model.Price">
+                    <input type="text" style="display:none;" asp-for="@Model.ProductId" value="@Model.ProductId">
+                    <input type="text" name="City" asp-for="@Model.CustomerInfo.City" value="@Model.CustomerInfo.City" placeholder="City">
+                    <small class="city-error-message text-muted"></small>
                     <select asp-for="@Model.CustomerInfo.Country">
                         <option>Bosnia and Herzegovina</option>
                         <option>Croatia</option>
@@ -110,9 +88,7 @@
                         <option>USA</option>
                         <option>Canada</option>
                     </select>
-
                     <button class="special-subcontent1-button" type="submit">Checkout</button>
-
                 </form>
             </div>
         </div>
@@ -129,7 +105,6 @@
 
     <!--content-->
     <div id="special2" class="content">
-
         <div class="footer">
             <div class="container">
                 <div class="footer-top-at">
@@ -144,15 +119,11 @@
                     </div>
                     <div class="col-md-4 amet-sed ">
                         <h4>CONTACT US</h4>
-
                         <p>
                             Say hello whenever you want!
                         </p>
                         <p class="special3">Send an email to: eklinika22@outlook.com <i class="fas fa-at"></i></p>
-
-
                         <p>Phone number: +387 62 244 806 <i class="fas fa-phone-square"></i></p>
-
                     </div>
                     <div class="col-md-4 amet-sed">
                         <h4>Newsletter</h4>
@@ -168,9 +139,12 @@
                     <div class="clearfix"> </div>
                 </div>
             </div>
-
         </div>
     </div>
+    <script src="../js/Login/jquery.min.js"></script>
+    <script src="../js/Login/jquery.validate.min.js"></script>
+    <script src="../js/Login/validate.js"></script>
+
 </body>
 </html>
 

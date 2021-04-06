@@ -24,7 +24,6 @@ namespace e_comm.Helpers
             {
                 result.Append(chars[b % (chars.Length)]);
             }
-
             return result.ToString();
         }
     }

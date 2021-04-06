@@ -15,7 +15,6 @@ namespace e_comm.Helpers
             email.From.Add(new MailboxAddress(configuration.GetValue<string>("EmailSettings:Name"),
                 configuration.GetValue<string>("EmailSettings:Email")));
             email.To.Add(new MailboxAddress(receiverName, receiverEmail));
-
             email.Subject = subject;
             email.Body = new TextPart("plain")
             {

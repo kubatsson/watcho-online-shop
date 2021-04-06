@@ -40,6 +40,121 @@
             }
         }
     );
+    $("#billing-details").validate(
+        {
+            rules: {
+                Email: {
+                    required: true,
+
+                },
+                Fullname: {
+
+                    required: true
+                },
+                Zip: {
+                    required: true,
+
+                },
+                City: {
+                    required: true,
+
+                },
+                StreetAddress: {
+                    required: true,
+
+                },
+                PhoneNumber: {
+                    required: true,
+
+                },
+            },
+            messages: {
+                Email: {
+                    required: "Please fill out this field"
+                },
+                Fullname: {
+                    required: "Please fill out this field"
+                },
+                Zip:{
+                    required : "Please fill out this field"
+                },
+                City: {
+                    required: "Please fill out this field"
+                },
+                PhoneNumber: {
+                    required: "Please fill out this field"
+                },
+                StreetAddress: {
+                    required: "Please fill out this field"
+                }
+                
+
+            },
+            errorPlacement: function (error, element) {
+                if (element.attr("name") == "Email")
+                    $(".email-error-message").append(error);
+                if (element.attr("name") == "Fullname")
+                    $(".fullname-error-message").append(error);
+                if (element.attr("name") == "Zip")
+                    $(".zip-error-message").append(error);
+                if (element.attr("name") == "City")
+                    $(".city-error-message").append(error);
+                if (element.attr("name") == "StreetAddress")
+                    $(".streetaddress-error-message").append(error);
+                if (element.attr("name") == "PhoneNumber")
+                    $(".phonenumber-error-message").append(error);
+            }
+        }
+    );
+    $("#contact-us").validate(
+        {
+            rules: {
+                Name: {
+                    required: true,
+
+                },
+                Email: {
+
+                    required: true
+                },
+                Subject: {
+                    required: true,
+
+                },
+                Message: {
+                    required: true,
+
+                }
+                
+            },
+            messages: {
+                Email: {
+                    required: "Please fill out this field"
+                },
+                Name: {
+                    required: "Please fill out this field"
+                },
+                Subject: {
+                    required: "Please fill out this field"
+                },
+                Message: {
+                    required: "Please fill out this field"
+                }
+            },
+            errorPlacement: function (error, element) {
+                if (element.attr("name") == "Email")
+                    $(".email-error-message").append(error);
+                if (element.attr("name") == "Name")
+                    $(".name-error-message").append(error);
+                if (element.attr("name") == "Subject")
+                    $(".subject-error-message").append(error);
+                if (element.attr("name") == "Message")
+                    $(".message-error-message").append(error);
+               
+            }
+        }
+    );
+
 
     $("#registration").validate(
         {

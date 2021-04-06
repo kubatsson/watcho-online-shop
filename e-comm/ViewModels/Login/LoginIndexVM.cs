@@ -11,7 +11,6 @@ namespace e_comm.ViewModels.Login
         [Required]
         [RegularExpression(@"^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$")]
         public string Email { get; set; }
-
         [Required]
         public string Password { get; set; }
 

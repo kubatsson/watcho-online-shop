@@ -77,9 +77,6 @@ namespace e_comm.DB.Configuration
                     GenderId = 1,
                     ImageRoute = "../images/HomePage/certina.jpg"
                 }
-
-
-
                 );
         }
     }

@@ -55,8 +55,8 @@ namespace e_comm.Controllers
 
 
             ProductListingVM hm = new ProductListingVM();
-            if (search != null)
-            {
+                if (search != null)
+                {
                 hm.Rows = con.Products.Where(x => x.ProductName.Contains(search)).Select(x => new ProductListingVM.Row
                 {
                     Price = x.Price.ToString(),
@@ -69,11 +69,9 @@ namespace e_comm.Controllers
                    
                 }).ToList();
 
-                hm.Categories = con.Categories.Select(x => x).ToList();
-
-                
+                hm.Categories = con.Categories.Select(x => x).ToList();               
                 return View(hm);
-            }
+                }
 
                 if (CategoryId == 0 && GenderId==3)
                 {
@@ -90,11 +88,10 @@ namespace e_comm.Controllers
                     }).ToList();
 
                     hm.Categories = con.Categories.Select(x => x).ToList();
-
-
-                     return View(hm);
+                    return View(hm);
                 }
-            if (CategoryId == 0 ) 
+
+                if (CategoryId == 0 ) 
                 {
                     hm.Rows = con.Products.Where(x => x.GenderId == GenderId).Select(x => new ProductListingVM.Row
                     {
@@ -108,11 +105,10 @@ namespace e_comm.Controllers
 
                     }).ToList();
 
-                    hm.Categories = con.Categories.Select(x => x).ToList();
-
-                
-                return View(hm);
+                    hm.Categories = con.Categories.Select(x => x).ToList();               
+                    return View(hm);
                  }
+
                 hm.Rows = con.Products.Where(x => x.CategoryId == CategoryId).Select(x => new ProductListingVM.Row
                 {
                     Price = x.Price.ToString(),
@@ -153,30 +149,27 @@ namespace e_comm.Controllers
         public IActionResult Search(HomePageIndexVM modelH=null,BrandListingVM modelB=null,ProductListingVM modelP=null )
         {
             string search = null;
-            
-            
+                       
             if (modelH.Search != null)
-            {
-                               
+            {                              
                 search = modelH.Search;
-
             }
+
             else if (modelB.Search != null)
-            {
-                
+            {               
                 search = modelB.Search;
             }
+
             else if (modelP.Search != null)
-            {
-                
+            {              
                 search = modelP.Search;
             }
+
             return RedirectToAction("ProductListing", new { search = search }) ;
         }
 
         public IActionResult ContactUs()
         {
-
             if (HttpContext.GetLoggedUser() != null)
             {
                 TempData["logged"] = "True";
@@ -186,19 +179,14 @@ namespace e_comm.Controllers
         }
 
         public IActionResult ContactUsSend(ContactUsVM model)
-        {
-         
-
-
+        {         
             string messageRequest = "Message from: " + model.Name + "\n Email address: "+model.Email+"\n Subject: "+model.Subject+"\n Message: "+model.Message;
             string messageForUser = "We have successfully received your request and you will get an answer in short period!";    
-
-            
-
+           
             EmailSettings.SendEmail(_configuration, model.Name, model.Email, "Ticket confirmation", messageForUser);
             EmailSettings.SendEmail(_configuration, "Adis Kubat", "adiskubatsson@gmail.com", "Message request", messageRequest);
 
-            return RedirectToAction("ContactUs");
+            return RedirectToAction("Index");
         }
     }
 }
