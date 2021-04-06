@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 namespace e_comm.ViewModels.HomePage
 {
     public class ContactUsVM
-    {
-        
-       
-
+    {              
         [Required]
         public string Name { get; set; }
         [Required]
@@ -18,9 +15,6 @@ namespace e_comm.ViewModels.HomePage
         [Required]
         public string Subject { get; set; }
         [Required]
-        public string Message { get; set; }
-        
-
-        
+        public string Message { get; set; }               
     }
 }

@@ -6,21 +6,16 @@ using System.Threading.Tasks;
 namespace e_comm.DB.Domain
 {
     public class User : Base
-    {
-        
+    {        
         public Gender Gender { get; set; }      
         public int GenderId { get; set; }
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public string PasswordSalt { get; set; }
-        public string PhoneNumber { get; set; }
         public List<Payment> Payments { get; set; }
-        public string Username { get; set; }
-        public int? TokenId { get; set; }
-        public Token Token { get; set; }
-        public int? ChangePasswordId { get; set; }
-        public ChangePasswordCode ChangePassword { get; set; }
-        public int? BillingDetailsId { get; set; }
+        public string Username { get; set; }       
+        public Token Token { get; set; }        
+        public ChangePasswordCode ChangePassword { get; set; }        
         public BillingDetails BillingDetails { get; set; }
 
 

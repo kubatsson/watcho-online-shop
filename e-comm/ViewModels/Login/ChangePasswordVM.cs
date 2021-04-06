@@ -8,10 +8,8 @@ namespace e_comm.ViewModels.Login
 {
     public class ChangePasswordVM
     {
-
         [Required]
         public string Password { get; set; }
-
         [Required]
         public string ConfirmPassword { get; set; }
     }

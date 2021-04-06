@@ -16,7 +16,6 @@ namespace e_comm.Controllers
 {
     public class LoginController : Controller
     {
-
         private DBcon con;
         private IConfiguration _configuration;
 
@@ -101,12 +100,10 @@ namespace e_comm.Controllers
                 else
                 {
                     con.ChangePasswords.Remove(changepw);
-
                     con.SaveChanges();
                 }
             }
             
-
             string value = RandomString.GetString(30);
 
             string link =
@@ -134,13 +131,13 @@ namespace e_comm.Controllers
             return RedirectToAction("Index");
             
         }
+
         public IActionResult ChangePassword(string value)
         {
             if (HttpContext.GetLoggedUser() != null)
             {
                 return RedirectToAction("Index", "HomePage");
             }
-
             if (con.ChangePasswords.SingleOrDefault(i => i.Value == value) == null)
 
                return RedirectToAction("Index");
@@ -197,7 +194,6 @@ namespace e_comm.Controllers
                     con.Tokens.Remove(t);
                 }
             }
-
             con.SaveChanges();
 
             Response.Cookies.Delete("loggedUser");

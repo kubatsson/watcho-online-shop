@@ -36,25 +36,20 @@ namespace e_comm.Controllers
 
             var user = HttpContext.GetLoggedUser();
 
-
             BillingDetails billing = con.BillingDetails.Where(x => x.UserId ==user.Id).FirstOrDefault();
 
             ShippingInfo shipping = new ShippingInfo();
 
             if (billing != null)
             {
-
-
                 shipping.FullName = billing.Fullname;
                 shipping.Email = billing.Email;
                 shipping.Zip = billing.Zip;
                 shipping.Country = billing.Country;
                 shipping.StreetAddress = billing.StreetAddress;
                 shipping.City = billing.City;
-                
-
-            }
-            
+                shipping.PhoneNumber = billing.PhoneNumber;               
+            }         
 
             PaymentFirstVM model = new PaymentFirstVM
             {
@@ -65,10 +60,7 @@ namespace e_comm.Controllers
                 CategoryId=product.CategoryId,
                 ImageRoute=product.ImageRoute,
                 ProductName=product.ProductName,
-                CustomerInfo=shipping
-                
-                
-                
+                CustomerInfo=shipping                                              
             };
             return View(model);
         }
@@ -93,6 +85,7 @@ namespace e_comm.Controllers
                 details.City = model.CustomerInfo.City;
                 details.StreetAddress = model.CustomerInfo.StreetAddress;
                 details.UserId = user.Id;
+                details.PhoneNumber = model.CustomerInfo.PhoneNumber;
 
                 con.SaveChanges();
             }
@@ -105,17 +98,12 @@ namespace e_comm.Controllers
                 billing.City = model.CustomerInfo.City;
                 billing.StreetAddress = model.CustomerInfo.StreetAddress;
                 billing.UserId = user.Id;
-
-               
-                con.Add(billing);
-                
+                billing.PhoneNumber = model.CustomerInfo.PhoneNumber;
+              
+                con.Add(billing);                
             }
             
             con.SaveChanges();
-
-
-
-
             int product = con.Products.Find(model.ProductId).Id;
 
             if (!ModelState.IsValid)
@@ -131,31 +119,37 @@ namespace e_comm.Controllers
 
             return View(pay);
         }
-        public IActionResult PaymentSuccess(int ProductId=0)
+
+        public IActionResult PaymentSuccess(int ProductId)
         {
-            //if (HttpContext.GetLoggedUser() != null)
-            //{
-            //    TempData["logged"] = "True";
-            //}
+            if (HttpContext.GetLoggedUser() != null)
+            {
+                TempData["logged"] = "True";
+            }
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
 
-           //User user = con.Users.Find(HttpContext.GetLoggedUser().Id);
-           // Product product = con.Products.Find(ProductId);
+            User user = con.Users.Find(HttpContext.GetLoggedUser().Id);
+            Product product = con.Products.Find(ProductId);
 
-           // Payment payment = new Payment
-           // {
-           //     UserId=user.Id,
-           //     ProductId=product.Id
-           // };
+            Payment payment = new Payment
+            {
+                UserId = user.Id,
+                ProductId = product.Id
+            };
 
-           // con.Payments.Add(payment);
-           // con.SaveChanges();
 
-           // string messageRequest = "You have new order on your online shop! Check it out";
-           // string messageForUser = "You've successfully ordered a new watch. You will get your order in next 15 days on the address you have " +
-           //     "entered in the 'Billing details' form.";
+            con.Payments.Add(payment);
+            con.SaveChanges();
 
-           // EmailSettings.SendEmail(_configuration, user.Username, user.Email, "Order confirmation", messageForUser);
-           // EmailSettings.SendEmail(_configuration, "Adis Kubat", "adiskubatsson@gmail.com", "New order", messageRequest);
+            string messageRequest = "You have new order on your online shop! Check it out";
+            string messageForUser = "You've successfully ordered a new watch. You will get your order in next 15 days on the address you have " +
+                "entered in the 'Billing details' form.";
+
+            EmailSettings.SendEmail(_configuration, user.Username, user.Email, "Order confirmation", messageForUser);
+            EmailSettings.SendEmail(_configuration, "Adis Kubat", "adiskubatsson@gmail.com", "New order", messageRequest);
 
             return View();
             

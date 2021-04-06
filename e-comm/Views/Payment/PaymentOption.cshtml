@@ -1,5 +1,4 @@
 ﻿
-
 @{
     Layout = null;
 }
@@ -13,33 +12,23 @@
     <title>Payment</title>
     <link href="../css/HomePage/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <script src="../js/HomePage/jquery.min.js"></script>
-
     <link href="../css/HomePage/style.css" rel="stylesheet" type="text/css" media="all" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-
-
     <link href="../css/HomePage/memenu.css" rel="stylesheet" type="text/css" media="all" />
-
-
-
 </head>
 <body>
     <!--header-->
     <div class="header">
         <div class="header-top">
             <div class="container">
-
                 <div class="header-left">
                     <ul>
                         @if (logged != null)
                         {
                             <li><a asp-controller="Login" asp-action="Logout">Log out</a></li>
                         }
-
                     </ul>
                     <div class="clearfix"> </div>
                 </div>
@@ -59,10 +48,7 @@
                         <li class="grid">
                             <a class="color1" asp-controller="HomePage" asp-action="ProductListing" asp-route-GenderId="2" >Women</a>
                         </li>
-
-
                         <li><a  asp-controller="HomePage" asp-action="BrandListing"  class="color1">Brands</a></li>
-
                         <li><a class="color1" asp-controller="HomePage" asp-action="ContactUs" >Get in touch</a></li>
                     </ul>
                 </div>
@@ -70,23 +56,18 @@
                 <div class="clearfix"> </div>
             </div>
         </div>
-
     </div>
 
     <div class="payment-content">
         <div class="payment-options-content">
             <h2>Paypal</h2>
             <a>
-
                 <div class="paypal-div">
-
                     <img src="http://pngimg.com/uploads/paypal/small/paypal_PNG7.png" />
-
                 </div>
             </a>
             <a class="btn btn-primary" id="paypal-btn" href="@Model.PaypalRoute">Proceed to payment</a>
         </div>
-
     </div>
 
     <!--content-->
@@ -95,7 +76,6 @@
         <div class="footer">
             <div class="container">
                 <div class="footer-top-at">
-
                     <div class="col-md-4 amet-sed">
                         <h4>MORE INFO</h4>
                         <ul class="nav-bottom">
@@ -106,15 +86,11 @@
                     </div>
                     <div class="col-md-4 amet-sed ">
                         <h4>CONTACT US</h4>
-
                         <p>
                             Say hello whenever you want!
                         </p>
                         <p class="special3">Send an email to: eklinika22@outlook.com <i class="fas fa-at"></i></p>
-
-
                         <p>Phone number: +387 62 244 806 <i class="fas fa-phone-square"></i></p>
-
                     </div>
                     <div class="col-md-4 amet-sed">
                         <h4>Newsletter</h4>
@@ -130,9 +106,9 @@
                     <div class="clearfix"> </div>
                 </div>
             </div>
-
         </div>
     </div>
+
 </body>
 </html>
 

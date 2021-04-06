@@ -12,13 +12,7 @@ namespace e_comm.DB.Configuration
         public override void Configure(EntityTypeBuilder<Token> builder)
         {
 
-            base.Configure(builder);
-
-            
-
-            
-
-            
+            base.Configure(builder);            
         }
     }
 }

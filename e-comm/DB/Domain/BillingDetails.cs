@@ -14,6 +14,7 @@ namespace e_comm.DB.Domain
         public string Country { get; set; }
         public string City { get; set; }        
         public int UserId { get; set; }
+        public string PhoneNumber { get; set; }
         public User User { get; set; }
         
     }
